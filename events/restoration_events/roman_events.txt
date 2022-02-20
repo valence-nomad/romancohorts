@@ -1,0 +1,283 @@
+namespace = wre_restoration
+
+#Reclaim the Western Roman Empire
+
+wre_restoration.0001 = {
+	type = character_event
+	title = wre_restoration.0001.t
+	desc = {
+		desc = wre_restoration.0001.desc.intro
+		desc = wre_restoration.0001.desc.second
+		first_valid = {
+			# Doing it as Christians.
+			triggered_desc = {
+				trigger = {
+					NOT = {
+						faith.religion = faith:hellenic_pagan.religion
+					}
+				}
+				desc = wre_restoration.0001.desc.christians
+			}
+			# Doing it as Hellenics
+			triggered_desc = {
+				trigger = {
+					faith.religion = faith:hellenic_pagan.religion
+				}
+				desc = wre_restoration.0001.desc.hellenics
+			}
+		}
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_emperor
+		create_wre_scripted_effect = yes
+	}
+	option = {
+		name = wre_restoration.0001.a
+		remove_nickname = yes
+		set_nickname_effect = { NICKNAME = nick_the_glorious }
+		# Send narrative fluff to other players (if any).
+		every_player = {
+			limit = {
+				NOT = { this = root }
+				is_within_diplo_range = { CHARACTER = root }
+			}
+			trigger_event = wre_restoration.0002
+		}
+	}
+}
+
+# Players informed of Western Roman Empire being reborn.
+wre_restoration.0002 = {
+	type = character_event
+	title = wre_restoration.0002.t
+	desc = {
+		desc = wre_restoration.0002.desc
+		first_valid = {
+			# Christians freaking out.
+			triggered_desc = {
+				trigger = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				desc = wre_restoration.0002.desc.hellenics
+			}
+			# Regular.
+			desc = wre_restoration.0002.desc.christians
+		}
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		#Same-faith non-empire tier rulers are over-awed.
+		if = {
+			limit = { faith = scope:scoped_emperor.faith }
+			play_music_cue = "mx_cue_epic_sacral_moment"
+		}
+		#Otherwise, this is a tacit statement of imperial threat.
+		else = { play_music_cue = "mx_cue_combat_2" }
+	}
+
+	option = {
+		name = { # Regular
+			trigger = {
+				NAND = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				NOT = {
+					has_title = title:e_hre
+				}
+			}
+			text = wre_restoration.0002.a
+		}
+		name = { # Regular HRE
+			trigger = {
+				NAND = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				has_title = title:e_hre
+			}
+			text = wre_restoration.0002.b
+		}
+		name = { # Crazy Hellenics
+			trigger = {
+				scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+				faith.religion = faith:catholic.religion
+				NOT = {
+					has_title = title:e_hre
+				}
+			}
+			text = wre_restoration.0002.c
+		}
+		name = { # Crazy Hellenics HRE
+			trigger = {
+				scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+				faith.religion = faith:catholic.religion
+				has_title = title:e_hre
+			}
+			text = wre_restoration.0002.d
+		}
+	}
+	option = {
+		name = wre_restoration.0002.e
+		fallback = yes
+	}
+}
+
+#Tweaks to reclaiming Roman Empire, since you should be able to do it as Western Rome now too; unique events for other people restoring Rome and you finding out about it, too!
+
+wre_restoration.0011 = {
+	type = character_event
+	title = roman_restoration.0001.t
+	desc = {
+		desc = roman_restoration.0001.desc.intro
+		desc = wre_restoration.0011.desc
+		first_valid = {
+			# Doing it as Christians.
+			triggered_desc = {
+				trigger = {
+					NOT = {
+						faith.religion = faith:hellenic_pagan.religion
+					}
+				}
+				desc = wre_restoration.0011.desc.christians
+			}
+			# Doing it as Hellenics
+			triggered_desc = {
+				trigger = {
+					faith.religion = faith:hellenic_pagan.religion
+				}
+				desc = wre_restoration.0011.desc.hellenics
+			}
+		}
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_emperor
+		create_roman_empire_scripted_effect = yes
+	}
+	option = {
+		name = wre_restoration.0011.a
+		remove_nickname = yes
+		set_nickname_effect = { NICKNAME = nick_restitutor_orbis }
+		# Send narrative fluff to other players (if any).
+		every_player = {
+			limit = {
+				NOT = { this = root }
+				is_within_diplo_range = { CHARACTER = root }
+			}
+			trigger_event = wre_restoration.0012
+		}
+	}
+}
+
+# Players informed of Roman Empire being reborn.
+wre_restoration.0012 = {
+	type = character_event
+	title = wre_restoration.0012.t
+	desc = {
+		desc = wre_restoration.0012.desc
+		first_valid = {
+			# Christians freaking out.
+			triggered_desc = {
+				trigger = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				desc = wre_restoration.0012.desc.hellenics
+			}
+			# Regular.
+			desc = wre_restoration.0012.desc.christians
+		}
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		#Same-faith non-empire tier rulers are over-awed.
+		if = {
+			limit = { faith = scope:scoped_emperor.faith }
+			play_music_cue = "mx_cue_epic_sacral_moment"
+		}
+		#Otherwise, this is a tacit statement of imperial threat.
+		else = { play_music_cue = "mx_cue_combat_2" }
+	}
+
+	option = {
+		name = { # Regular
+			trigger = {
+				NAND = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				NOT = {
+					has_title = title:e_hre
+				}
+			}
+			text = wre_restoration.0012.a
+		}
+		name = { # Regular HRE
+			trigger = {
+				NAND = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				has_title = title:e_hre
+			}
+			text = wre_restoration.0012.b
+		}
+		name = { # ERE
+			trigger = {
+				NAND = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				has_title = title:e_byzantium
+			}
+			text = wre_restoration.0012.f
+		}
+		name = { # Crazy Hellenics
+			trigger = {
+				scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+				faith.religion = faith:catholic.religion
+				NOT = {
+					has_title = title:e_hre
+				}
+			}
+			text = wre_restoration.0012.c
+		}
+		name = { # Crazy Hellenics HRE
+			trigger = {
+				scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+				faith.religion = faith:catholic.religion
+				has_title = title:e_hre
+			}
+			text = wre_restoration.0012.d
+		}
+	}
+	option = {
+		name = wre_restoration.0012.e
+		fallback = yes
+	}
+}

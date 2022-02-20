@@ -1,0 +1,134 @@
+born_in_the_red = {
+	opposites = {
+		born_in_the_purple
+	}
+	monthly_prestige = 0.1
+	short_reign_duration_mult = -0.25
+
+	fame = yes
+	culture_succession_prio = children_can_be_born_in_the_red
+	
+	ruler_designer_cost = 40
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_born_in_the_red_desc
+			}
+			desc = trait_born_in_the_red_character_desc
+		}
+	}
+}
+
+born_in_the_purple = {
+	opposites = {
+		born_in_the_red
+	}
+	monthly_prestige = 0.1
+	short_reign_duration_mult = -0.25
+
+	fame = yes
+	culture_succession_prio = children_can_be_born_in_the_purple
+	
+	ruler_designer_cost = 40
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_born_in_the_purple_desc
+			}
+			desc = trait_born_in_the_purple_character_desc
+		}
+	}
+}
+
+legatus = {
+	fame = yes
+	
+	monthly_prestige = 0.1
+	
+	martial = 3
+	prowess = 3
+	enemy_hard_casualty_modifier = 0.25
+	
+	opinion_of_liege = -20
+	liege_opinion = -20
+	attraction_opinion = 10
+	vassal_opinion = 10
+	
+	ai_war_cooldown = -0.25
+	ai_war_chance = 1
+	
+	ruler_designer_cost = 60
+	
+	ai_honor = low_negative_ai_value
+	ai_greed = very_high_positive_ai_value
+	ai_energy = very_high_positive_ai_value
+	ai_boldness = high_positive_ai_value
+	ai_zeal = high_positive_ai_value
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_legatus_fallback_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					faith = { religion_tag = christianity_religion }
+					is_female = yes 
+					}
+				desc = trait_legatus_female_desc_christian
+			}
+			triggered_desc = {
+				trigger = { 
+					is_female = no 
+					faith = { religion_tag = christianity_religion }
+				}
+				desc = trait_legatus_male_desc_christian
+			}
+			triggered_desc = {
+				trigger = { 
+					faith = { religion_tag = hellenism_religion }
+					is_female = yes 
+				}
+				desc = trait_legatus_female_desc_hellenic
+			}
+			triggered_desc = {
+				trigger = { 
+					faith = { religion_tag = hellenism_religion }
+					is_female = no 
+				}
+				desc = trait_legatus_male_desc_hellenic
+			}
+			
+			triggered_desc = {
+				trigger = { is_female = yes }
+				desc = trait_legatus_female_desc
+			}
+			desc = trait_legatus_male_desc
+		}
+	}
+	
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_legatus_fallback_dead
+			}
+			triggered_desc = {
+				trigger = {
+					is_female = yes
+				}
+				desc = trait_legatus_female
+			}
+			desc = trait_legatus_fallback_male
+		}
+	}
+}

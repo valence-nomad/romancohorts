@@ -1,0 +1,241 @@
+open_colosseum_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
+
+	desc = open_colosseum_decision_desc
+	selection_tooltip = open_colosseum_decision_tooltip
+	major = no
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		has_title = title:c_roma
+        NOR = { 
+            has_character_modifier = hosting_colosseum_civilized
+            has_character_modifier = hosting_colosseum_hellenic 
+            has_character_flag = roman_entertainment_policy_changed
+        }
+	}
+
+	is_valid_showing_failures_only = {
+		is_physically_able_adult = yes
+		is_independent_ruler = yes
+        NOT = { faith = { has_doctrine = tenet_pacifism } }
+	}
+
+	cost = {
+		gold = {
+            value = 300
+        }
+	}
+
+	effect = {
+		if = {
+            limit = {
+                OR = { 
+                    faith = hellenic_pagan
+                    faith = {
+                        OR = {
+                            has_doctrine = tenet_human_sacrifice
+                            has_doctrine = tenet_warmonger
+                            has_doctrine = tenet_gruesome_festivals
+                            has_doctrine = tenet_exaltation_of_pain
+                            has_doctrine = tenet_ritual_cannibalism
+                            has_doctrine = unreformed_faith
+                        }
+                    }
+                }
+            }
+            add_character_modifier = hosting_colosseum_hellenic
+        }
+        else = {
+            add_character_modifier = hosting_colosseum_civilized
+        }
+        title:c_roma = {
+            add_county_modifier = colosseum_in_use
+        }
+        hidden_effect = {
+            add_character_flag = {
+                flag = roman_entertainment_policy_changed
+                years = 5
+            }
+        }
+    }
+}
+
+close_colosseum_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
+
+	desc = close_colosseum_decision_desc
+	selection_tooltip = close_colosseum_decision_tooltip
+	major = no
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		has_title = title:c_roma
+        OR = {
+            has_character_modifier = hosting_colosseum_civilized
+            has_character_modifier = hosting_colosseum_hellenic 
+            has_character_flag = roman_entertainment_policy_changed
+        }
+	}
+
+	is_valid_showing_failures_only = {
+		is_physically_able_adult = yes
+		is_independent_ruler = yes
+        NOT = { faith = { has_doctrine = tenet_warmonger } }
+	}
+
+	cost = {
+		gold = {
+            value = 300
+        }
+	}
+
+	effect = {
+        if = {
+            limit = { has_character_modifier = hosting_colosseum_hellenic }
+            remove_character_modifier = hosting_colosseum_hellenic
+        }
+		else = {
+            remove_character_modifier = hosting_colosseum_civilized
+        }
+        title:c_roma = {
+            remove_county_modifier = colosseum_in_use
+        }
+        title:c_roma = {
+            add_county_modifier = { modifier = roman_unrest months = 6 }
+        }
+        hidden_effect = {
+            add_character_flag = {
+                flag = roman_entertainment_policy_changed
+                years = 5
+            }
+        }
+    }
+}
+
+open_hippodrome_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
+
+	desc = open_hippodrome_decision_desc
+	selection_tooltip = open_hippodrome_decision_tooltip
+	major = no
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		has_title = title:c_byzantion
+        NOR = { 
+            has_character_modifier = hosting_hippodrome_civilized
+            has_character_modifier = hosting_hippodrome_hellenic 
+            has_character_flag = roman_entertainment_policy_changed
+        }
+	}
+
+	is_valid_showing_failures_only = {
+		is_physically_able_adult = yes
+		is_independent_ruler = yes
+        NOT = { faith = { has_doctrine = tenet_pacifism } }
+	}
+
+	cost = {
+		gold = {
+            value = 300
+        }
+	}
+
+	effect = {
+		if = {
+            limit = {
+                OR = { 
+                    faith = hellenic_pagan
+                    faith = {
+                        OR = {
+                            has_doctrine = tenet_human_sacrifice
+                            has_doctrine = tenet_warmonger
+                            has_doctrine = tenet_gruesome_festivals
+                            has_doctrine = tenet_exaltation_of_pain
+                            has_doctrine = tenet_ritual_cannibalism
+                            has_doctrine = unreformed_faith
+                        }
+                    }
+                }
+            }
+            add_character_modifier = hosting_hippodrome_hellenic
+        }
+        else = {
+            add_character_modifier = hosting_hippodrome_civilized
+        }
+        title:c_byzantion = {
+            add_county_modifier = hippodrome_in_use
+        }
+        hidden_effect = {
+            add_character_flag = {
+                flag = roman_entertainment_policy_changed
+                years = 5
+            }
+        }
+    }
+}
+
+close_hippodrome_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
+
+	desc = close_hippodrome_decision_desc
+	selection_tooltip = close_hippodrome_decision_tooltip
+	major = no
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		has_title = title:c_byzantion
+        OR = {
+            has_character_modifier = hosting_hippodrome_civilized
+            has_character_modifier = hosting_hippodrome_hellenic 
+            has_character_flag = roman_entertainment_policy_changed
+        }
+	}
+
+	is_valid_showing_failures_only = {
+		is_physically_able_adult = yes
+		is_independent_ruler = yes
+        NOT = { faith = { has_doctrine = tenet_warmonger } }
+	}
+
+	cost = {
+		gold = {
+            value = 300
+        }
+	}
+
+	effect = {
+        if = {
+            limit = { has_character_modifier = hosting_hippodrome_hellenic }
+            remove_character_modifier = hosting_hippodrome_hellenic
+        }
+		else = {
+            remove_character_modifier = hosting_hippodrome_civilized
+        }
+        title:c_byzantion = {
+            remove_county_modifier = hippodrome_in_use
+        }
+        title:c_byzantion = {
+            add_county_modifier = { modifier = roman_unrest months = 6 }
+        }
+        hidden_effect = {
+            add_character_flag = {
+                flag = roman_entertainment_policy_changed
+                years = 5
+            }
+        }
+    }
+}

@@ -1,0 +1,88 @@
+create_wre_scripted_effect = {
+	#Create Western Roman Empire, shift dejure/history/laws.
+	hidden_effect = {
+		every_held_title = { #Should shift all dejure of all Empires owned at the time.
+			limit = {
+				tier = tier_empire
+			}
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_kingdom
+				}
+				set_de_jure_liege_title = title:e_wre
+				
+			}
+		}
+		every_held_title = { #Completely Controlled Kingdoms as well.
+			limit = {
+				tier = tier_kingdom
+				root = { completely_controls = prev }
+			}
+			set_de_jure_liege_title = title:e_wre
+		}
+	}
+	
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	title:e_wre = {
+		change_title_holder = {
+			holder = root
+			change = scope:change
+		}
+		copy_title_history = title:e_italy
+	}
+	resolve_title_and_vassal_change = scope:change
+	hidden_effect = { set_primary_title_to = title:e_wre }
+	every_held_title = { #Should destroy all other Empires owned at the time.
+		limit = {
+				tier = tier_empire
+			NOT = { this = title:e_wre }
+		}
+		root = { destroy_title = prev }
+	}
+	if = { #Automatically move capital to Roma.
+		limit = {
+			NOT = { capital_county = { this = title:c_roma } }
+		}
+		hidden_effect = {
+			if = { #Usurp if not held personally.
+				limit = {
+					NOT = { this = title:c_roma.holder }
+				}
+				create_title_and_vassal_change = {
+					type = returned
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				title:c_roma = {
+					change_title_holder = {
+						holder = root
+						change = scope:change
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+		root = { set_realm_capital = title:c_roma }
+	}
+	hidden_effect = {
+		add_character_flag = flag_reclaimed_western_roman_empire #used for Eulogy.
+	}
+
+	if = { #Holy Roman Empire, if it exists, is not happy
+		limit = {
+			exists = title:e_hre.holder
+		}	
+		title:e_hre.holder = { save_scope_as = scoped_emperor }
+		scope:scoped_emperor = {
+			add_prestige = major_prestige_loss
+			add_opinion = {
+				target = scope:scoped_ruler
+				modifier = pretender_opinion
+			}
+		}
+	}
+}

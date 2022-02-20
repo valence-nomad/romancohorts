@@ -1,0 +1,15 @@
+﻿# Root = Winning combat side
+# scope:wipe - Was this a wipe?
+on_combat_end_winner = {
+	events = {
+		roman_battle.0001 # Victorious commander might get to have a triumph
+	}
+}
+
+# Root = Losing combat side
+# scope:wipe - Was this a wipe?
+on_combat_end_loser = {
+	events = {
+		roman_battle.0002 # Defeated commander has to restart their attempt at a triumph
+	}
+}

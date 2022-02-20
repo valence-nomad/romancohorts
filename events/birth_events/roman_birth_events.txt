@@ -1,0 +1,36 @@
+namespace = wre_birth
+
+wre_birth.1 = {
+	type = character_event
+	hidden = yes
+	
+	trigger = {
+		any_parent = {
+			culture = {
+				has_cultural_parameter = children_can_be_born_in_the_red
+			}
+			OR = {
+				has_title = title:e_byzantium	#Must be the Eastern Roman Emperor.
+				has_title = title:e_wre #Or the Western Roman Emperor.
+				has_title = title:e_roman_empire	#Or the Roman emperor.
+			}
+			capital_county = title:c_roma	#Must rule from the Eternal City.
+		}
+		mother = {
+			OR = {
+				AND = {	#Landless mothers must be actually at court to use the chamber.
+					is_ruler = no
+					location = title:c_roma.title_province
+				}
+				AND = {	#Landed rulers can be assumed to make the journey, unless they have some extremely pressing reason not to.
+					is_ruler = yes
+					NOT = { is_at_war_with = root.father }
+				}
+			}
+			is_imprisoned = no	#Cannot use the red chamber from prison.
+			is_commanding_army = no	#Cannot use the red chamber whilst commanding an army.
+		}
+	}
+
+	immediate = { add_trait = born_in_the_red }
+}

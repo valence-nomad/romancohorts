@@ -1,0 +1,83 @@
+create_artifact_writings_cicero_effect = {
+    $OWNER$ = { save_scope_as = owner }
+    get_artifact_quality_effect = yes
+    get_artifact_wealth = yes
+
+    set_artifact_rarity_famed = yes
+    create_artifact = {
+        name = roman_cicero_name
+        description = roman_cicero_description
+        type = book
+        visuals = book
+        wealth = 100
+        quality = 100
+        template = general_unique_template
+        history = {
+                type = created_before_history
+        }
+        modifier = writings_of_cicero_modifier
+    }
+}
+
+create_artifact_writings_aurelius_effect = {
+    $OWNER$ = { save_scope_as = owner }
+    get_artifact_quality_effect = yes
+    get_artifact_wealth = yes
+
+    set_artifact_rarity_famed = yes
+    create_artifact = {
+        name = roman_aurelius_name
+        description = roman_aurelius_description
+        type = book
+        visuals = book
+        wealth = 100
+        quality = 100
+        template = general_unique_template
+        history = {
+                type = created_before_history
+        }
+        modifier = writings_of_aurelius_modifier
+    }
+}
+
+create_artifact_writings_caesar_effect = {
+    $OWNER$ = { save_scope_as = owner }
+    get_artifact_quality_effect = yes
+    get_artifact_wealth = yes
+
+    set_artifact_rarity_famed = yes
+    create_artifact = {
+        name = roman_caesar_name
+        description = roman_caesar_description
+        type = book
+        visuals = book
+        wealth = 100
+        quality = 100
+        template = general_unique_template
+        history = {
+                type = created_before_history
+        }
+        modifier = writings_of_caesar_modifier
+    }
+}
+
+create_artifact_writings_varro_effect = {
+    $OWNER$ = { save_scope_as = owner }
+    get_artifact_quality_effect = yes
+    get_artifact_wealth = yes
+
+    set_artifact_rarity_famed = yes
+    create_artifact = {
+        name = roman_varro_name
+        description = roman_varro_description
+        type = book
+        visuals = book
+        wealth = 100
+        quality = 100
+        template = general_unique_template
+        history = {
+                type = created_before_history
+        }
+        modifier = writings_of_varro_modifier
+    }
+}

@@ -1,0 +1,33 @@
+studying_latin_classics = {
+        icon = learning_positive
+        learning = 1
+        stewardship = 1
+        fertility = -0.1
+        prowess = -1
+}
+
+hosting_colosseum_civilized = {
+        icon = prowess_positive
+        clergy_opinion = -20
+        prowess = 1
+        learning = -1
+}
+
+hosting_colosseum_hellenic = {
+        icon = prowess_positive
+        prowess = 1
+        learning = -1
+}
+
+hosting_hippodrome_civilized = {
+        icon = horse_positive
+        clergy_opinion = -20
+        stewardship = 1
+        learning = -1
+}
+
+hosting_hippodrome_hellenic = {
+        icon = horse_positive
+        stewardship = 1
+        learning = -1
+}

@@ -1,0 +1,330 @@
+
+namespace = roman_restoration
+
+#Other empires get Restitutor Orbis now
+
+roman_restoration.0001 = {
+	type = character_event
+	title = roman_restoration.0001.t
+	desc = {
+		desc = roman_restoration.0001.desc.intro
+		first_valid = {
+			# Doing it as the Greeks.
+			triggered_desc = {
+				trigger = {
+					root.culture = culture:greek
+				}
+				desc = roman_restoration.0001.desc.greeks
+			}
+			# Doing it as somebody else.
+			triggered_desc = {
+				trigger = {
+					NOT = {
+						root.culture = culture:greek
+					}
+				}
+				desc = roman_restoration.0001.desc.other
+			}
+		}
+		first_valid = {
+			# Doing it as Christians.
+			triggered_desc = {
+				trigger = {
+					NOT = {
+						faith.religion = faith:hellenic_pagan.religion
+					}
+				}
+				desc = roman_restoration.0001.desc.christians
+			}
+			# Doing it as Hellenics
+			triggered_desc = {
+				trigger = {
+					faith.religion = faith:hellenic_pagan.religion
+				}
+				desc = roman_restoration.0001.desc.hellenics
+			}
+		}
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_emperor
+		create_roman_empire_scripted_effect = yes
+	}
+	option = {
+		name = roman_restoration.0001.a
+		remove_nickname = yes
+		set_nickname_effect = { NICKNAME = nick_restitutor_orbis }
+		# Send narrative fluff to other players (if any).
+		every_player = {
+			limit = {
+				NOT = { this = root }
+				is_within_diplo_range = { CHARACTER = root }
+			}
+			trigger_event = roman_restoration.0002
+		}
+	}
+}
+
+roman_restoration.0003 = {
+	type = character_event
+	title = roman_restoration.0003.t
+	desc = {
+		first_valid = {
+			# Doing it as the Greeks.
+			triggered_desc = {
+				trigger = {
+					root.culture = culture:greek
+				}
+				desc = roman_restoration.0003.desc.greeks
+			}
+			# Doing it as somebody else.
+			triggered_desc = {
+				trigger = {
+					NOT = {
+						root.culture = culture:greek
+					}
+				}
+				desc = roman_restoration.0003.desc.other
+			}
+		}
+		desc = roman_restoration.0003.desc
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_emperor
+		create_roman_empire_holy_scripted_effect = yes
+	}
+
+	option = {
+		name = roman_restoration.0003.a
+		remove_nickname = yes
+		set_nickname_effect = { NICKNAME = nick_restitutor_orbis }
+		# Send narrative fluff to other players (if any).
+		every_player = {
+			limit = {
+				NOT = { this = root }
+				is_within_diplo_range = { CHARACTER = root }
+			}
+			trigger_event = roman_restoration.0004
+		}
+	}
+}
+
+#Events for if WRE exists and ERE or HRE reform Rome
+
+#Inform WRE that ERE won
+roman_restoration.0002 = {
+	type = character_event
+	title = roman_restoration.0002.t
+	desc = {
+		first_valid = {
+			# Reaction of the WRE (if they are even still around)
+			triggered_desc = {
+				trigger = {
+					OR = {
+						has_title = title:e_wre
+						any_liege_or_above = {
+							has_title = title:e_wre
+						}
+					}
+				}
+				desc = roman_restoration.0002.desc.western
+			}
+			# Everybody else.
+			triggered_desc = {
+				trigger = {
+					NOR = {
+						has_title = title:e_wre
+						any_liege_or_above = {
+							has_title = title:e_wre
+						}
+					}
+				}
+				desc = roman_restoration.0002.desc
+			}
+		}
+		first_valid = {
+			# Christians freaking out.
+			triggered_desc = {
+				trigger = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				desc = roman_restoration.0002.desc.hellenics
+			}
+			# Regular.
+			desc = roman_restoration.0002.desc.christians
+		}
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		#Same-faith non-empire tier rulers are over-awed.
+		if = {
+			limit = { faith = scope:scoped_emperor.faith }
+			play_music_cue = "mx_cue_epic_sacral_moment"
+		}
+		#Otherwise, this is a tacit statement of imperial threat.
+		else = { play_music_cue = "mx_cue_combat_2" }
+	}
+
+	option = {
+		name = { # Regular
+			trigger = {
+				NAND = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				NOT = {
+					has_title = title:e_hre
+				}
+			}
+			text = roman_restoration.0002.a
+		}
+		name = { # Regular HRE
+			trigger = {
+				NAND = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				has_title = title:e_hre
+			}
+			text = roman_restoration.0002.b
+		}
+		name = { # WRE
+			trigger = {
+				NAND = {
+					scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+					faith.religion = faith:catholic.religion
+				}
+				has_title = title:e_wre
+			}
+			text = roman_restoration.0002.f
+		}
+		name = { # Crazy Hellenics
+			trigger = {
+				scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+				faith.religion = faith:catholic.religion
+				NOT = {
+					has_title = title:e_hre
+				}
+			}
+			text = roman_restoration.0002.c
+		}
+		name = { # Crazy Hellenics HRE
+			trigger = {
+				scope:scoped_emperor = { faith.religion = faith:hellenic_pagan.religion }
+				faith.religion = faith:catholic.religion
+				has_title = title:e_hre
+			}
+			text = roman_restoration.0002.d
+		}
+	}
+	option = {
+		name = roman_restoration.0002.e
+		fallback = yes
+	}
+}
+
+#Inform WRE that HRE won
+roman_restoration.0004 = {
+	type = character_event
+	title = roman_restoration.0004.t
+	desc = {
+		first_valid = {
+			# Reaction of the Byzantines (if they are even still around)
+			triggered_desc = {
+				trigger = {
+					OR = {
+						has_title = title:e_byzantium
+						any_liege_or_above = {
+							has_title = title:e_byzantium
+						}
+					}
+				}
+				desc = roman_restoration.0004.desc.byzantines
+			}
+			triggered_desc = {
+				trigger = {
+					OR = {
+						has_title = title:e_wre
+						any_liege_or_above = {
+							has_title = title:e_wre
+						}
+					}
+				}
+				desc = roman_restoration.0004.desc.western
+			}
+			# Everybody else.
+			triggered_desc = {
+				trigger = {
+					NOR = {
+						has_title = title:e_byzantium
+						any_liege_or_above = {
+							has_title = title:e_byzantium
+						}
+					}
+				}
+				desc = roman_restoration.0004.desc.others
+			}
+		}
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		#Same-faith non-empire tier rulers are over-awed.
+		if = {
+			limit = { faith = scope:scoped_emperor.faith }
+			play_music_cue = "mx_cue_epic_sacral_moment"
+		}
+		#Otherwise, this is a tacit statement of imperial threat.
+		else = { play_music_cue = "mx_cue_combat_2" }
+	}
+
+	option = {
+		name = roman_restoration.0004.a
+		trigger = {
+			NOT = {
+				has_title = title:e_byzantium
+			}
+		}
+	}
+	option = {
+		name = roman_restoration.0004.b
+		trigger = {
+			has_title = title:e_byzantium
+		}
+		stress_impact = {
+			base = medium_stress_impact_gain
+		}
+	}
+	option = {
+		name = roman_restoration.0004.c
+		trigger = {
+			has_title = title:e_byzantium
+		}
+		stress_impact = {
+			base = medium_stress_impact_gain
+		}
+	}
+}

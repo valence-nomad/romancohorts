@@ -1,0 +1,7 @@
+﻿triumph_background = {
+	background = {	#Rome
+		reference = "gfx/interface/illustrations/event_scenes/triumph_background.dds"
+		environment = "environment_frontend_mediterranean_main"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_mediterranean"
+	}
+}

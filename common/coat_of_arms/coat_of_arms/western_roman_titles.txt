@@ -1,0 +1,29 @@
+e_wre = {
+	pattern = "pattern_diagonal_split_01.dds"
+	color1= "purple"
+	color2= "red"
+	color3= "red"
+	colored_emblem={
+		texture = "ce_letter_r.dds"
+		color1 = "yellow"
+		instance={ position={ 0.610000 0.430000 } scale={ 0.090000 0.090000 }  }
+	}
+
+	colored_emblem={
+		texture="ce_chi_rho.dds"
+		color1="yellow"
+		instance={ position={ 0.500000 0.430000 } scale={ 0.330000 0.330000 } depth=2.010000 }
+	}
+
+	colored_emblem={
+		texture="ce_laurels.dds"
+		color1="yellow"
+		instance={ position={ 0.500000 0.440000 } scale={ 0.690000 0.690000 } depth=3.010000 }
+	}
+
+	colored_emblem={
+		texture="ce_letter_s.dds"
+		color1="yellow"
+		instance={ position={ 0.390000 0.430000 } scale={ 0.090000 0.090000 } depth=1.010000 }
+	}
+}

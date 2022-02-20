@@ -1,0 +1,14 @@
+﻿l_korean:
+
+roman_conversion.0001.t:0 "Salvaged Texts"
+roman_conversion.0001.desc:0 "My antiquarian has come to me with news. Apparently, there is a small, salvageable collection of old books in one of my libraries. They appear to be well-preserved, centuries-old writings by prominent Roman figures. It is said that the Romans were masters of many subjects, and their writings could be useful for a ruler to study."
+roman_conversion.0001.a:0 "Perhaps the old Romans can shed light on how to win friends and influence people."
+roman_conversion.0001.b:0 "I have heard the Romans were exceptional administrators."
+roman_conversion.0001.c:0 "Weren't the Romans masters of warfare?"
+roman_conversion.0001.d:0 "I hope to read of Roman history and philosophy."
+roman_conversion.0001.e:0 "If the Romans were so superior, wherefore did their empire fall? Sell the trash."
+
+convert_to_roman_culture_decision:0 "Adopt Roman Traditions"
+convert_to_roman_culture_decision_desc:0 "I have studied the works, culture, and history of the ancient Romans. Their way of life and culture is most fascinating. Perhaps we should consider adopting some of the old Roman ways into our own society, and thereby gain some strength from the masters of the world."
+convert_to_roman_culture_decision_tooltip:0 "I will become Roman"
+convert_to_roman_culture_decision_confirm:0 "Ab antiquo, ad praesens!"

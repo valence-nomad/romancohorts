@@ -1,0 +1,8 @@
+e_wre = {
+	color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+	definite_form = yes
+	
+}

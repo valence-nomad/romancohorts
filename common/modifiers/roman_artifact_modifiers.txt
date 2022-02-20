@@ -1,0 +1,31 @@
+writings_of_cicero_modifier = {
+    court_grandeur_baseline_add = 2
+    monthly_prestige = 0.2
+    owned_personal_scheme_success_chance_add = 10
+    diplomacy = 2
+    monthly_diplomacy_lifestyle_xp_gain_mult = 0.2
+}
+
+writings_of_aurelius_modifier = {
+    court_grandeur_baseline_add = 2
+    monthly_prestige = 0.2
+    stewardship = 2
+    health = 0.2
+    development_growth = 0.10
+}
+
+writings_of_caesar_modifier = {
+    court_grandeur_baseline_add = 2
+    monthly_prestige = 0.2
+    martial = 2
+    forest_advantage = 4
+    heavy_infantry_toughness_mult = 0.10
+}
+
+writings_of_varro_modifier
+    court_grandeur_baseline_add = 2
+    monthly_prestige = 0.2
+    learning = 2
+    vassal_opinion = 5
+    monthly_piety_gain_mult = 0.20
+}

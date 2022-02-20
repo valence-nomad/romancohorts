@@ -1,0 +1,557 @@
+namespace = roman_battle
+
+#Event for Winning Side: Keeps track of total number of victories the side's commander has (if they have never lost a battle). At 20 victories, player will get a notification and they become eligible for a triumph.
+roman_battle.0001 = {
+	hidden = yes
+	scope = combat_side
+
+	trigger = {
+		exists = side_commander
+		side_commander = { is_alive = yes } # Must be alive to get a triumph
+		side_commander = { is_at_war_with_liege = no } # Not throwing a rebel a triumph for beating me! (But might throw myself a triumph for beating rebels)
+		OR = {
+			side_commander = { # Only Roman generals can get triumphs
+				liege = {
+					OR = {
+						has_title = title:e_byzantium
+						has_title = title:e_wre
+						has_title = title:e_roman_empire
+					}
+				}
+			}
+			side_commander = { # I can throw myself a triumph if I earn one and I'm the imperator
+				OR = {
+					has_title = title:e_byzantium
+					has_title = title:e_wre
+					has_title = title:e_roman_empire
+				}
+			}
+		}
+		side_commander = {
+			# Gotta start counting
+			OR = {
+				NOT = { has_variable = triumph_0001_tracker }
+				trigger_if = {
+					limit = {
+						has_variable = triumph_0001_tracker
+					}
+					var:roman_battle_0001_tracker > -1
+				}
+			}
+		}
+	}
+
+	immediate = {
+		# Add to victory tracker
+		side_commander = {
+			if = {
+				limit = {
+					is_alive = yes # If you die to get your triumph, you don't get a triumph
+				}
+				# If the victory tracking variable does not yet exist, create it.
+				if = {
+					limit = {
+						NOT = {
+							has_variable = triumph_0001_tracker
+						}
+					}
+					set_variable = {
+						name = triumph_0001_tracker
+						value = 1
+					}
+				}
+				# Otherwise, increment it.
+				else_if = {
+					change_variable = {
+						name = triumph_0001_tracker
+						add = 1
+					}
+				}
+
+				#If the commander has accumulated 20 victories, fire the event which tells the player they've got a legatus.
+				if = {
+					limit = {
+						var:triumph_0001_tracker = 20
+					}
+
+					# If there is an enemy commander, save their scope for portraits/localization in the following event.
+					if = {
+						limit = {
+							exists = root.enemy_side.side_commander
+						}
+						root.enemy_side.side_commander = {
+							save_scope_as = enemy_commander
+						}
+					}
+					
+					save_scope_as = triumphant_legatus
+
+					# Fire the event notifying the liege that they've got a legatus on their hands
+					liege = {
+						trigger_event = {
+							id = roman_battle.0003
+							days = 1
+						}
+					}
+					set_variable = { #eligible for another triumph later
+						name = roman_battle_0001_tracker
+						value = 0
+					}
+				}
+#				#If the commander has accumulated 20 victories, fire the event which tells the player they are a legatus. For time being not working so commented out
+#				if = {
+#					limit = {
+#						var:triumph_0001_tracker = 20
+#						NOT = { exists = liege }
+#					}
+#
+#					# If there is an enemy commander, save their scope for portraits/localization in the following event.
+#					if = {
+#						limit = {
+#							exists = root.enemy_side.side_commander
+#						}
+#						root.enemy_side.side_commander = {
+#							save_scope_as = enemy_commander
+#						}
+#					}
+#					
+#					# Fire the event notifying the liege that they are a pretty good legatus
+#					trigger_event = {
+#						id = roman_battle.0004
+#						days = 1
+#					}
+#					
+#					set_variable = { #eligible for another triumph later
+#						name = roman_battle_0001_tracker
+#						value = 0
+#					}
+#				}
+			}
+		}
+	}
+}
+
+# Event for Losing Side: Reset the triumph tracker 
+roman_battle.0002 = {
+	hidden = yes
+	scope = combat_side
+
+	trigger = {
+		exists = side_commander
+		side_commander = {
+			is_alive = yes
+		}
+	}
+
+	immediate = {
+		side_commander = {
+			#If we lose a battle, we have to restart our climb to Triumph
+			set_variable = {
+				name = roman_battle_0001_tracker
+				value = 0
+			}
+		}
+	}
+}
+
+#Once a commander wins 20 battles with 0 defeats, notify their liege.
+roman_battle.0003 = {
+	type = character_event
+	title = roman_battle.0003.t
+	desc = {
+		desc = roman_battle.0003.desc.opening
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:enemy_commander
+				}
+				desc = roman_battle.0003.desc.commander
+			}
+			desc = roman_battle.0003.desc.no_commander
+		}
+		desc = roman_battle.0003.desc.ending
+	}
+	theme = battle
+	left_portrait = {
+		character = scope:triumphant_legatus
+		animation = war_over_win
+	}
+	right_portrait = {
+		character = scope:enemy_commander
+		animation = war_over_loss
+	}
+
+	immediate = {
+		
+	}
+
+	#Option A: Grant the general a triumph
+	option = {
+		name = roman_battle.0003.a
+		#AI will always honor the general unless paranoid or they dislike the general
+		stress_impact = {
+			arrogant = medium_stress_gain
+			paranoid = low_stress_gain
+			humble = medium_stress_loss
+			generous = low_stress_loss
+		}
+		remove_short_term_gold = major_gold_value
+		ai_chance = {
+			base = 100
+			modifier = { #What if the legatus turns on me?
+				has_trait = paranoid
+				add = -50
+			}
+			modifier = { #Why would I honor someone who isn't me?
+				has_trait = arrogant
+				add = -25
+			}
+			modifier = {
+				opinion = { #They're okay, I suppose...
+					target = scope:triumphant_legatus 
+					value < 50
+				}
+				add = -25
+			}
+			modifier = {
+				opinion = { #They might be a good fighter but I don't like them
+					target = scope:triumphant_legatus
+					value < 0
+				}
+				add = -25
+			}
+			modifier = {
+				opinion = { #They're terrible people and don't deserve a triumph
+					target = scope:triumphant_legatus
+					value < -50
+				}
+				add = -25
+			}
+		}
+		every_vassal = {
+			limit = {
+				opinion = { #Liege honored someone deserving
+					target = scope:triumphant_legatus
+					value > 0
+				}
+			}
+			add_opinion = {
+				modifier = pleased_opinion
+				target = root
+				opinion = 20
+			}
+		}
+		every_vassal = {
+			limit = {
+				opinion = { #Liege honored someone undeserving
+					target = scope:triumphant_legatus
+					value < 0
+				}
+			}
+			add_opinion = {
+				modifier = respect_opinion
+				target = root
+				opinion = -20
+			}
+		}
+		scope:triumphant_legatus = {
+			add_opinion = { #Obviously I am happy that my liege has honored me
+				modifier = pleased_opinion
+				target = root
+				opinion = 30
+			}
+			set_variable = { # can only have one triumph in your lifetime
+				name = roman_battle_0001_tracker
+				value = -2
+			}
+		}
+		every_player = { #Send the triumph event to everyone in Rome
+			limit = {
+				OR = {
+					any_liege_or_above = { 
+						OR = {
+							has_title = title:e_byzantium
+							has_title = title:e_wre
+							has_title = title:e_roman_empire
+						}
+					}
+					has_title = title:e_byzantium
+					has_title = title:e_wre
+					has_title = title:e_roman_empire
+				}
+			}
+			trigger_event = roman_battle.0005
+		}
+	}
+
+	#Option B: Deny the general a triumph
+	option = {
+		name = {
+			text = roman_battle.0003.b
+		}
+		#AI unlikely to choose this unless paranoid
+		stress_impact = {
+			arrogant = medium_stress_loss
+			paranoid = low_stress_loss
+			humble = medium_stress_gain
+			generous = low_stress_gain
+		}
+		ai_chance = {
+			base = 0
+			modifier = { #What if the legatus is out to get me?
+				has_trait = paranoid
+				add = 50
+			}
+			modifier = { #Why would I honor someone who isn't me?
+				has_trait = arrogant
+				add = 25
+			}
+			modifier = {
+				opinion = { #They're okay, I suppose...
+					target = scope:triumphant_legatus 
+					value < 50
+				}
+				add = 25
+			}
+			modifier = {
+				opinion = { #They're good at fighting but suck.
+					target = scope:triumphant_legatus
+					value < 0
+				}
+				add = 25
+			}
+			modifier = {
+				opinion = { #They're terrible people who don't deserve a triumph.
+					target = scope:triumphant_legatus
+					value < -50
+				}
+				add = 25
+			}
+		}
+		every_vassal = {
+			limit = {
+				opinion = { #Insulted someone I dislike
+					target = scope:triumphant_legatus
+					value < 0
+				}
+			}
+			add_opinion = {
+				modifier = pleased_opinion
+				target = root
+				opinion = 20
+			}
+		}
+		every_vassal = {
+			limit = {
+				opinion = { #Snubbed someone deserving
+					target = scope:triumphant_legatus
+					value > 0
+				}
+			}
+			add_opinion = {
+				modifier = respect_opinion
+				target = root
+				opinion = -20
+			}
+		}
+		scope:triumphant_legatus = {
+			add_opinion = { #I am furious my good service has gone unrewarded
+				modifier = insult_opinion
+				target = root
+				opinion = -50
+			}
+		}
+	}
+}
+
+#Once a commander wins 20 battles with 0 defeats, notify their liege. This is the version where you are your own liege.
+roman_battle.0004 = {
+	type = character_event
+	title = roman_battle.0004.t
+	desc = {
+		desc = roman_battle.0004.desc.opening
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:enemy_commander
+				}
+				desc = roman_battle.0004.desc.commander
+			}
+			desc = roman_battle.000$.desc.no_commander
+		}
+		desc = roman_battle.0004.desc.ending
+	}
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = war_over_win
+	}
+	right_portrait = {
+		character = scope:enemy_commander
+		animation = war_over_loss
+	}
+
+	immediate = {
+		
+	}
+
+	#Option A: Grant the general a triumph
+	option = {
+		name = roman_battle.0004.a
+		#AI will always honor themselves unless they're humble
+		stress_impact = {
+			arrogant = medium_stress_loss
+			humble = medium_stress_gain
+		}
+		ai_chance = {
+			base = 100
+			modifier = { #Oh, but I'm too humble for a giant parade
+				has_trait = humble
+				add = -50
+			}
+		}
+		every_vassal = {
+			limit = {
+				opinion = { #Liege honored someone deserving
+					target = scope:triumphant_legatus
+					value > 0
+				}
+			}
+			add_opinion = {
+				modifier = pleased_opinion
+				target = root
+				opinion = 20
+			}
+		}
+		every_vassal = {
+			limit = {
+				opinion = { #Liege honored someone undeserving
+					target = scope:triumphant_legatus
+					value < 0
+				}
+			}
+			add_opinion = {
+				modifier = respect_opinion
+				target = root
+				opinion = -20
+			}
+		}
+		root = {
+			set_variable = { # can only have one triumph in your lifetime
+				name = roman_battle_0001_tracker
+				value = -2
+			}
+		}
+		remove_short_term_gold = major_gold_value
+		every_player = { #Send the triumph event to everyone in Rome
+			limit = {
+				OR = {
+					any_liege_or_above = { 
+						OR = {
+							has_title = title:e_byzantium
+							has_title = title:e_wre
+							has_title = title:e_roman_empire
+						}
+					}
+					has_title = title:e_byzantium
+					has_title = title:e_wre
+					has_title = title:e_roman_empire
+				}
+			}
+			trigger_event = roman_battle.0005
+		}
+	}
+
+	#Option B: Deny the general a triumph
+	option = {
+		name = {
+			text = roman_battle.0004.b
+		}
+		#AI unlikely to choose this unless humble
+		stress_impact = {
+			arrogant = medium_stress_loss
+			paranoid = low_stress_loss
+			humble = medium_stress_gain
+			generous = low_stress_gain
+		}
+		ai_chance = {
+			base = 0
+			modifier = { #Oh but I'm too humble for a giant parade
+				has_trait = humble
+				add = 50
+			}
+		}
+		every_vassal = {
+			limit = {
+				opinion = { #Liege knows they're undeserving
+					target = scope:triumphant_legatus
+					value < 0
+				}
+			}
+			add_opinion = {
+				modifier = pleased_opinion
+				target = root
+				opinion = 20
+			}
+		}
+		every_vassal = {
+			limit = {
+				opinion = { #Liege refuses to let us party
+					target = scope:triumphant_legatus
+					value > 0
+				}
+			}
+			add_opinion = {
+				modifier = respect_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+}
+
+roman_battle.0005 = {
+type = character_event
+	title = roman_battle.0005.t
+	desc = {
+		desc = roman_battle.0005.desc.intro
+		first_valid = {
+			# Hellenic flavor
+			triggered_desc = {
+				trigger = {
+					scope:triumphant_legatus.liege = { faith.religion = faith:hellenic_pagan.religion }
+					scope:triumphant_legatus = { is_female = yes }
+				}
+				desc = roman_battle.0005.desc.hellenic.female
+			}
+			triggered_desc = {
+				trigger = {
+					scope:triumphant_legatus.liege = { faith.religion = faith:hellenic_pagan.religion }
+					scope:triumphant_legatus = { is_female = no }
+				}
+				desc = roman_battle.0005.desc.hellenic.male
+			}
+			# Regular.
+			desc = roman_battle.0005.desc.other
+		}
+	}
+	theme = roman_triumph
+	left_portrait = {
+		character = scope:triumphant_legatus
+		animation = personality_honorable
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		scope:triumphant_legatus = {
+			add_trait = legatus
+			add_prestige = major_prestige_gain
+		}
+	}
+
+	option = {
+		name = { # Regular
+			text = roman_battle.0005.a
+		}
+	}
+}

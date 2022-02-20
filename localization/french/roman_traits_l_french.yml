@@ -1,0 +1,18 @@
+﻿l_french:
+
+trait_born_in_the_red:0 "Born in the Red"
+trait_born_in_the_red_desc:0 "This character was born to prominent parents, a rich life, and high expectations."
+trait_born_in_the_red_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] was born to prominent parents, a rich life, and high expectations."
+
+trait_legatus:0 "Legatus Romanum"
+trait_legatus_fallback_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] is an honored legatus of the Imperium Romanum who has proven [ROOT.GetCharacter.GetHerHim]self in war."
+trait_legatus_female_desc_christian:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been honored as beloved of Saint Mary by triumph for her achievements in war."
+trait_legatus_male_desc_christian:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been honored as champion of Saint Peter by triumph for his achievements in war."
+trait_legatus_female_desc_hellenic:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been honored as Venus Victrix incarnate for a day by augury and triumph for her achievements in war."
+trait_legatus_male_desc_hellenic:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been honored as Mars Gradivus incarnate for a day by augury and triumph for his achievements in war."
+trait_legatus_female_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been honored as a beloved daughter of Rome for a day by augury and triumph for her achievements in war."
+trait_legatus_male_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been honored as a beloved son of Rome for a day by augury and triumph for his achievements in war."
+
+trait_legatus_fallback_dead:0 "Legatus Romanum"
+trait_legatus_female:0 "Legata"
+trait_legatus_fallback_male:0 "Legate"

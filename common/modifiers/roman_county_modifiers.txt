@@ -1,0 +1,22 @@
+colosseum_in_use = {
+    icon = prowess_positive
+    county_opinion_add = 10
+    development_growth_factor = medium_development_growth_gain
+    tax_mult = 0.2
+    monthly_county_control_change_add = -1
+    build_gold_cost = 0.2
+}
+
+hippodrome_in_use = {
+    icon = horse_positive
+    county_opinion_add = 10
+    development_growth_factor = medium_development_growth_gain
+    tax_mult = 0.2
+    monthly_county_control_change_add = -1
+    build_gold_cost = 0.2
+}
+
+roman_unrest = {
+    icon = county_modifier_opinion_negative
+    county_opinion_add = -20
+}

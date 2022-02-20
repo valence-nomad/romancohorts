@@ -1,0 +1,84 @@
+random_yearly_playable_pulse = {
+    random_events = {
+        chance_of_no_event = {
+            value = 90
+        }
+
+        100 = roman_conversion.0001 # Chance that you'll get brought some books
+    }
+}
+
+on_birthday = {
+    on_actions = {
+        check_colosseum_pulse
+        check_hippodrome_pulse
+    }
+}
+
+check_colosseum_pulse = {
+    trigger = {
+        has_title = title:c_roma
+        title:c_roma = { has_county_modifier = colosseum_in_use }
+        NOR = {
+            has_character_modifier = hosting_colosseum_civilized
+            has_character_modifier = hosting_colosseum_hellenic
+        }
+    }
+    effect = {
+        if = {
+            limit = {
+                OR = { 
+                    faith = hellenic_pagan
+                    faith = {
+                        OR = {
+                            has_doctrine = tenet_human_sacrifice
+                            has_doctrine = tenet_warmonger
+                            has_doctrine = tenet_gruesome_festivals
+                            has_doctrine = tenet_exaltation_of_pain
+                            has_doctrine = tenet_ritual_cannibalism
+                            has_doctrine = unreformed_faith
+                        }
+                    }
+                }
+            }
+            add_character_modifier = hosting_colosseum_hellenic
+        }
+        else = {
+            add_character_modifier = hosting_colosseum_civilized
+        }
+    }
+}
+
+check_hippodrome_pulse = {
+    trigger = {
+        has_title = title:c_byzantion
+        title:c_roma = { has_county_modifier = hippodrome_in_use }
+        NOR = {
+            has_character_modifier = hosting_hippodrome_civilized
+            has_character_modifier = hosting_hippodrome_hellenic
+        }
+    }
+    effect = {
+        if = {
+            limit = {
+                OR = { 
+                    faith = hellenic_pagan
+                    faith = {
+                        OR = {
+                            has_doctrine = tenet_human_sacrifice
+                            has_doctrine = tenet_warmonger
+                            has_doctrine = tenet_gruesome_festivals
+                            has_doctrine = tenet_exaltation_of_pain
+                            has_doctrine = tenet_ritual_cannibalism
+                            has_doctrine = unreformed_faith
+                        }
+                    }
+                }
+            }
+            add_character_modifier = hosting_hippodrome_hellenic
+        }
+        else = {
+            add_character_modifier = hosting_hippodrome_civilized
+        }
+    }
+}

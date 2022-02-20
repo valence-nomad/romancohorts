@@ -1,0 +1,57 @@
+namespace = roman_conversion
+
+#Event to start studying ancient Rome
+roman_conversion.0001 = {
+    type = character_event
+    title = roman_conversion.0001.t
+    desc = roman_conversion.0001.desc
+
+    theme = learning_scholarship_focus
+    left_portrait = root
+
+    trigger = {
+        employs_court_position = antiquarian_court_position
+		capital_province = { geographical_region = world_europe_south_italy }
+        NOT = { has_character_modifier = studying_latin_classics }
+        NOT = { culture = culture:roman }
+        is_ai = no #Don't want random AIs doing this and getting a bunch of copies of Latin texts floating around
+    }
+
+    option = {
+        name = roman_conversion.0001.a
+        create_artifact_writings_cicero_effect = {
+            OWNER = root
+        }
+        add_character_modifier = { modifier = studying_latin_classics years = 5 }
+        remove_short_term_gold = medium_gold_value
+    }
+    option = {
+        name = roman_conversion.0001.b
+        create_artifact_writings_aurelius_effect = {
+            OWNER = root
+        }
+        add_character_modifier = { modifier = studying_latin_classics years = 5 }
+        remove_short_term_gold = medium_gold_value
+    }
+    option = {
+        name = roman_conversion.0001.c
+        create_artifact_writings_caesar_effect = {
+            OWNER = root
+        }
+        add_character_modifier = { modifier = studying_latin_classics years = 5 }
+        remove_short_term_gold = medium_gold_value
+    }
+    option = {
+        name = roman_conversion.0001.d
+        create_artifact_writings_varro_effect = {
+            OWNER = root
+        }
+        add_character_modifier = { modifier = studying_latin_classics years = 5 }
+        remove_short_term_gold = medium_gold_value
+    }
+    option = {
+        name = roman_conversion.0001.e
+        add_gold = minor_gold_value
+        add_prestige = minor_prestige_gain
+    }
+}

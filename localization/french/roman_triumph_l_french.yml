@@ -1,0 +1,24 @@
+﻿l_french:
+
+roman_battle.0003.t:0 "Legatus Gloriae"
+roman_battle.0003.desc.opening:0 "[triumphant_legatus.GetTitledFirstName] has shown [triumphant_legatus.GetHerHis] martial acumen to be beyond reproach!"
+roman_battle.0003.desc.commander:0 "With [triumphant_legatus.GetHerHis] latest victory against [enemy_commander.GetTitledFirstName] and [enemy_commander.GetHerHis] soldiers,"
+roman_battle.0003.desc.no_commander:0 "With [triumphant_legatus.GetHerHis] latest victory in battle"
+roman_battle.0003.desc.ending:0 "[triumphant_legatus.GetSheHe] has proven [triumphant_legatus.GetHerHis] courage and puissance against Rome's enemies.\n\nHaving smashed the enemy at every turn in [triumphant_legatus.GetHerHis] campaign, it is expected that [triumphant_legatus.GetSheHe] shall be granted a triumph!"
+roman_battle.0003.a:0 "Construct a Triumphal Arch!"
+roman_battle.0003.b:0 "[triumphant_legatus.GetFirstName] has only done [triumphant_legatus.GetHerHis] duty"
+
+roman_battle.0004.t:0 "Gloria Mea"
+roman_battle.0004.desc.opening:0 "I have shown my martial acumen to be beyond reproach!"
+roman_battle.0004.desc.commander:0 "With my latest victory against [enemy_commander.GetTitledFirstName] and [enemy_commander.GetHerHis] soldiers,"
+roman_battle.0004.desc.no_commander:0 "With mylatest victory in battle"
+roman_battle.0004.desc.ending:0 "I have proven my courage and puissance against Rome's enemies.\n\nHaving smashed the enemy at every turn in my campaign, the people will expect that I shall hold a triumph in honor of my most glorious deeds!"
+roman_battle.0004.a:0 "Construct a Triumphal Arch!"
+roman_battle.0004.b:0 "I have only done my duty"
+
+roman_battle.0005.t:0 "Divus Triumphus"
+roman_battle.0005.desc.intro:0 "[triumphant_legatus.GetTitledFirstName] has returned to Rome covered in glory. In [triumphant_legatus.GetHerHis] last military campaign, [triumphant_legatus.GetSheHe] won a string of resounding victories that will be remembered forever!"
+roman_battle.0005.desc.hellenic.female:0 "A triumphal arch has been erected to commemorate her victories, and she is being honored in Rome as the divine incarnation of Venus Victrix on Earth for the day!"
+roman_battle.0005.desc.hellenic.male:0 "A triumphal arch has been erected to commemorate his victories, and he is being honored in Rome as the divine incarnation of Mars Gradivus on Earth for the day!"
+roman_battle.0005.desc.other:0 "A triumphal arch has been erected to commemorate [triumphant_legatus.GetHerHis] victories, and [triumphant_legatus.GetSheHe] is being honored in Rome as a divine champion for the day!"
+roman_battle.0005.a:0 "A new Cincinnatus, or a new Caesar?"

@@ -1,0 +1,5 @@
+on_birth_child = {
+	events = {
+		wre_birth.1 #Born in the Red
+	}
+}

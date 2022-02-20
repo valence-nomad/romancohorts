@@ -1,0 +1,94 @@
+create_roman_expedition_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+
+	desc = create_roman_expedition_desc
+	selection_tooltip = create_roman_expedition_tooltip
+	major = yes
+
+	ai_check_interval = 12
+
+	cooldown = { days = 10800 } #Once in a reign kind of event, maybe twice if you're long-lived
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		OR = { #Only Romans can launch a reclamation expedition
+			has_title = title:e_byzantium
+			has_title = title:e_wre
+			has_title = title:e_roman_empire
+		}
+		has_trait = ambitious
+		
+		NOR = {
+			completely_controls = title:k_italy 
+			completely_controls = title:k_romagna
+			completely_controls = title:k_sicily
+			completely_controls = title:k_burgundy
+			completely_controls = title:k_france
+			completely_controls = title:k_lotharingia
+			completely_controls = title:k_brittany
+			completely_controls = title:k_aquitaine
+			completely_controls = title:k_valencia
+			completely_controls = title:k_navarra
+			completely_controls = title:k_asturias
+			completely_controls = title:k_andalusia
+			completely_controls = title:k_badajoz
+			completely_controls = title:k_spanish_galicia
+			completely_controls = title:k_sardinia
+			completely_controls = title:k_africa
+			completely_controls = title:k_tahert
+			completely_controls = title:k_maghreb
+			completely_controls = title:k_egypt
+			completely_controls = title:k_jerusalem 
+			completely_controls = title:k_syria
+			completely_controls = title:k_anatolia 
+			completely_controls = title:k_pontus
+			completely_controls = title:k_armenia
+			completely_controls = title:k_nikaea
+			completely_controls = title:k_jazira
+			completely_controls = title:k_georgia
+			completely_controls = title:k_thessalonika
+			completely_controls = title:k_hellas
+			completely_controls = title:k_epirus
+			completely_controls = title:k_bulgaria
+			completely_controls = title:k_serbia
+			completely_controls = title:k_croatia
+			completely_controls = title:k_hungary
+			completely_controls = title:k_wallachia
+			completely_controls = title:k_bavaria
+			completely_controls = title:k_england
+			completely_controls = title:k_wales
+			completely_controls = title:k_frisia
+	}
+
+
+	is_valid = {
+		prestige_level >= 4
+		any_vassal = {
+			martial >= 20
+			number_of_commander_traits >= 2
+			is_ruler = yes
+			is_landed = yes
+			is_at_war = no
+		}
+
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+	}
+
+	effect = {
+		custom_tooltip = create_roman_expedition_effect_tooltip
+		show_as_tooltip = {
+			create_roman_expedition_scripted_effect = yes
+		}
+		trigger_event = {
+			id = wre_restoration.0021
+		}
+		
+	}
+}

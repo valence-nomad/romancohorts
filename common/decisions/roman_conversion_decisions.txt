@@ -1,0 +1,55 @@
+convert_to_roman_culture_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
+
+	desc = convert_to_roman_culture_decision_desc
+	selection_tooltip = convert_to_roman_culture_decision_tooltip
+	major = yes
+
+	ai_check_interval = 12
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		capital_province = { geographical_region = world_europe_south_italy }
+		NOT = { culture = culture:roman}
+	}
+
+
+	is_valid = {
+		learning >= 20
+		is_at_war = no
+        NOT = {trait = arrogant}
+        has_character_modifier = studying_latin_classics
+	}
+
+	is_valid_showing_failures_only = {
+		is_physically_able_adult = yes
+		is_at_war = no
+		custom_description = {
+			text = can_only_change_culture_once
+			NOT = { has_character_flag = converted_culture_this_lifetime }
+		}
+	}
+
+	cost = {
+		prestige = {
+			value = 1000
+			if = {
+				limit = {
+					culture = {
+						has_same_culture_heritage = culture:roman
+					}
+				}
+				multiply = 0.5
+			}
+		}
+	}
+
+	effect = {
+		convert_family_culture_and_notify_vassals_effect = {
+			CONVERTER = root
+			OLD_CULTURE = root.culture
+			NEW_CULTURE = culture:roman
+		}
+	}
+}

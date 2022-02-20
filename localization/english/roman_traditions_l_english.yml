@@ -1,0 +1,34 @@
+﻿l_english:
+
+tradition_western_roman_legacy_name:0 "Western Roman Legacy"
+tradition_western_roman_legacy_desc:0 "The military organization of the Roman Empire is still in living memory within this culture. A professional army is favored over levied troops."
+
+culture_parameter_unlock_maa_legionarius:0 "Can recruit [GetMaA('legionarii').GetName] as [men_at_arms|E]"
+culture_parameter_unlock_maa_scholaris:0 "Can recruit [GetMaA('scholares').GetName] as [men_at_arms|E]"
+culture_parameter_unlock_maa_varangian_guard:0 "Can recruit [GetMaA('varangian_guard').GetName] as [men_at_arms|E]"
+culture_parameter_unlock_maa_ballistarius:0 "Can recruit [GetMaA('ballistarii').GetName] as [men_at_arms|E]"
+culture_parameter_unlock_maa_western_cataphract:0 "Can recruit [GetMaA('western_cataphract').GetName] as [men_at_arms|E]"
+culture_parameter_unlock_maa_eastern_cataphract:0 "Can recruit [GetMaA('eastern_cataphract').GetName] as [men_at_arms|E]"
+culture_parameter_unlock_maa_exkoubitoi:0 "Can recruit [GetMaA('exkoubitoi').GetName] as [men_at_arms|E]"
+culture_parameter_unlock_maa_exploratores:0 "Can recruit [GetMaA('exploratores').GetName] as [men_at_arms|E]"
+culture_parameter_children_can_be_born_in_the_red:2 "[children|E] born to a [ruler|E] holding the $e_roman_empire$ and ruling from $c_roma$ may gain the [GetTrait('born_in_the_red').GetName( GetNullCharacter )] [trait|E] - Taking precedence in the [line_of_succession|E]"
+
+legionarii:0 "Cohortes Legionarii"
+scholares:0 "Scholares Palatinae"
+exploratores:0 "Cohortes Exploratores"
+western_cataphract:0 "Equites Cataphractarii"
+
+varangian_guard:0 "Tagma ton Varangon"
+ballistarii:0 "Banda ton Vallistra"
+exkoubitoi:0 "Banda ton Akontistes"
+eastern_cataphract:0 "Kataphraktoi"
+
+legionarii_flavor:0 "#F Armed with sword, shield, and unbreakable civic pride, the legions of Rome shall never be driven from this land, nor any other.#!"
+scholares_flavor:0 "#F The imperial escort cavalry are superbly armed and armored for extended melees, yet agile enough to run down any routed foe.#!"
+exploratores_flavor:0 "#F On or off the battlefield, Rome's lightly armored scouts and spies are experts at finding and harassing the enemy.#!"
+western_cataphract_flavor:0 "#F Clad in iron from head to hoof, Roman cataphracts easily thunder through enemy lines with lance and mace.#!"
+
+varangian_guard_flavor:0 "#F Equipped with Dane axes and heavy mail hauberks, the elite Varangian Guard are a formidable foe in any engagement.#!"
+ballistarii_flavor:0 "#F Eastern Roman crossbowmen are trained to loose deadly volleys of bolts before joining the fray with sword and shield.#!"
+exkoubitoi_flavor:0 "#F For the Eternal Eagle, Rome's staunch infantrymen will stand shield-to-shield against any onslaught.#!"
+eastern_cataphract_flavor:0 "#F Clad in iron from head to hoof, Roman cataphracts easily thunder through enemy lines with lance and mace.#!"
