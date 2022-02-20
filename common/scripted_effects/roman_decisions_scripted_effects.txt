@@ -32,7 +32,7 @@ create_wre_scripted_effect = {
 			holder = root
 			change = scope:change
 		}
-		copy_title_history = title:e_italy
+		copy_title_history = title:e_byzantium
 	}
 	resolve_title_and_vassal_change = scope:change
 	hidden_effect = { set_primary_title_to = title:e_wre }
@@ -70,6 +70,9 @@ create_wre_scripted_effect = {
 	}
 	hidden_effect = {
 		add_character_flag = flag_reclaimed_western_roman_empire #used for Eulogy.
+	}
+	title:e_wre = {
+		add_title_law = roman_elective_succession_law
 	}
 
 	if = { #Holy Roman Empire, if it exists, is not happy

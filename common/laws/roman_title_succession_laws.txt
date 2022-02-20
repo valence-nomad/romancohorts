@@ -1,0 +1,35 @@
+title_succession_laws = {
+    roman_elective_succession_law = {
+        can_have = {
+            has_government = feudal_government
+            highest_held_title_tier = tier_empire
+            OR = {
+                has_title = title:e_byzantium
+                has_title = title:e_wre
+                has_title = title:e_roman_empire
+            }
+        }
+        can_pass = {
+            can_change_title_law_trigger = yes
+            culture = { has_cultural_parameter = roman_elective_succession_enabled }
+        }
+        can_title_have = {
+            can_title_have_law_general_trigger = yes
+        }
+        succession = {
+            order_of_succession = election
+            election_type = roman_elective
+        }
+        flag = elective_succession_law
+        title_allegiance_opinion = 10
+        modifier = {
+            vassal_limit = 20
+        }
+        revoke_cost = {
+            prestige = 100000
+        }
+        pass_cost = {
+            prestige = change_title_succession_law_prestige_cost
+        }
+    }
+}

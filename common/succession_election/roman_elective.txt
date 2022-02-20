@@ -1,0 +1,94 @@
+roman_elective = {
+    elector_vote_strength = {
+        base = 0
+        elector_voting_strength_roman_elective_modifier = yes
+    }
+    candidates = {
+        add = {
+            type = holder_close_family
+            limit = {
+                feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+                byzantine_elective_deformed_candidate_trigger = no
+                has_unelectable_government_trigger = no
+            }
+        }
+        add = {
+            type = title_claimants
+            limit = {
+                feudal_elective_potential_landless_claimant_candidate_trigger = yes
+                byzantine_elective_deformed_candidate_trigger = no
+                has_unelectable_government_trigger = no
+            }
+        }
+        add = {
+            type = holder_spouses
+            limit = {
+                byzantine_elective_deformed_candidate_trigger = no
+                is_consort_of = scope:holder
+                has_unelectable_trait_trigger = no
+                has_unelectable_government_trigger = no
+            }
+        }
+        add = {
+            type = holder_direct_vassals
+            limit = {
+                feudal_elective_potential_landed_candidate_trigger = yes
+                martial >=10
+                byzantine_elective_deformed_candidate_trigger = no
+                has_unelectable_government_trigger = no
+            }
+        }
+        add = {
+            type = holder_marshal
+            limit = {
+                has_council_position = councillor_marshal
+                is_vassal_of = scope:holder
+                byzantine_elective_deformed_candidate_trigger = no
+                has_unelectable_government_trigger = no
+            }
+        }
+    }
+    electors = {
+        add = holder
+        add = holder_spouses
+        add = {
+            type = holder_direct_vassals
+            limit = {
+                OR = {
+                    scope:holder = {
+                        any_councillor = {
+                            this = root
+                        }
+                    }
+                    is_powerful_vassal = yes
+                    is_knight = yes
+                    martial >=12
+                    highest_held_title_tier >= 3
+                }
+            }
+        }
+        add = {
+            type = religious_head
+            limit = {
+                root = scope:holder.faith.religious.head
+            }
+        }
+    }
+    candidate_score = {
+        base = 0
+		vote_for_dynasty_modifier = yes
+        holder_voting_pattern_feudal_elective_modifier = yes
+        elector_self_voting_pattern_feudal_elective_modifier = yes
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+        modifier = {
+            desc = tooltip_feudal_elector_vote_born_in_the_red
+		    NOT = { this = scope:candidate } #Do not judge yourself.
+		    culture = { has_cultural_parameter = children_can_be_born_in_the_red }
+		    scope:candidate = { has_trait = born_in_the_red }
+		    add = 50
+	    }
+    }
+}

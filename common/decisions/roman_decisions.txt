@@ -29,11 +29,8 @@ claim_wre_decision = {
 
 	is_valid = {
 		prestige_level >= max_prestige_level
-
 		custom_description = {
 			text = restore_wre_decision_tt
-			has_title = title:e_italy
-			capital_county = { this = title:c_roma }
 			OR = {
 				religion = religion:christianity_religion
 				religion = religion:hellenism_religion
@@ -45,7 +42,8 @@ claim_wre_decision = {
 				has_title = title:e_roman_empire
 			}
 		}
-
+		has_title = title:e_italy
+		
 		completely_controls_region = world_europe_south_italy
 		completely_controls = title:d_provence
 		completely_controls = title:d_languedoc

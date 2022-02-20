@@ -32,3 +32,23 @@ varangian_guard_flavor:0 "#F Equipped with Dane axes and heavy mail hauberks, th
 ballistarii_flavor:0 "#F Eastern Roman crossbowmen are trained to loose deadly volleys of bolts before joining the fray with sword and shield.#!"
 exkoubitoi_flavor:0 "#F For the Eternal Eagle, Rome's staunch infantrymen will stand shield-to-shield against any onslaught.#!"
 eastern_cataphract_flavor:0 "#F Clad in iron from head to hoof, Roman cataphracts easily thunder through enemy lines with lance and mace.#!"
+
+tradition_roman_succession_name:0 "Western Roman Succession"
+tradition_roman_succession_desc:0 "This culture is strongly influenced by the administration, policies, and unspoken rules of the Roman people and the Western Roman Empire."
+
+roman_elective_succession_law:0 "Imperial Succession"
+roman_elective_succession_law_subname:0 "Roman Politics"
+roman_elective_succession_law_effects:0 "Succession in Rome is a deeply political process. The [ruler|E], the ruler's [spouse|E], [councillors|E], [head_of_faith|E], and all [powerful_vassals|e] can nominate a [title_heir|E] from among the ruler's [close_family|E], [claimants|e], or themselves. The [voting_power|E] each politician wields is based on their skills."
+roman_elective_candidates:0 "Close Family, Claimants, and Notable Commanders"
+roman_elective_candidates_tooltip:0 "Valid candidates to rule Rome must have no deformities and be one of the following: \n$EFFECT_LIST_BULLET$Be a legitimate [close_family|E] member of the current title holder \n$EFFECT_LIST_BULLET$#high Or#! be a spouse or concubine of the current title holder \n$EFFECT_LIST_BULLET$#high Or#! have a valid [claim|E] on the Empire \n$EFFECT_LIST_BULLET$#high Or#! be a valid powerful [vassal|E] with greater than 12 [martial|E] \n$EFFECT_LIST_BULLET$#high Or#! be the [marshal|E] of the ruler"
+roman_elective_electors:0 "Electors"
+roman_elective_electors_tooltip:0 "Valid [electors|E] in Rome are:\n$EFFECT_LIST_BULLET$The Imperator \n$EFFECT_LIST_BULLET$The Imperator's consorts \n$EFFECT_LIST_BULLET$The [head_of_faith|E] of the Emperor's [religion|E] \n$EFFECT_LIST_BULLET$A [powerful_vassal|E], [councillor|E], or notable general of the Empire"
+culture_parameter_roman_elective_succession_enabled:0 "Unlocks Imperial Elective succession"
+cannot_have_tradition_roman_succession:0 "$cannot_combine_tradition_trigger_desc$ #high $tradition_roman_succession_name$#!"
+tooltip_imperial_vote_strength_emperor_unfavored:0 "[ROOT.Char.GetSheHe|U] was not born in an Imperial Palace: $VALUE|=+0$"
+tooltip_imperial_vote_strength_elector_commander:0 "[ROOT.Char.GetSheHe|U] is a respected commander: $VALUE|=+0$"
+tooltip_imperial_vote_strength_elector_orator:0 "[ROOT.Char.GetSheHe|U] is a convincing orator: $VALUE|=+0$"
+tooltip_imperial_vote_strength_elector_legatus:0 "[ROOT.Char.GetSheHe|U] is a [GetTrait('legatus').GetName( Root.Char )]: $VALUE|=+0$"
+tooltip_imperial_vote_strength_emperor_commander:0 "[ROOT.Char.GetSheHe|U] is a proven commander: $VALUE|=+0$"
+
+tooltip_feudal_elector_vote_born_in_the_red:0 "[candidate.GetSheHe|U] was [GetTrait('born_in_the_red').GetName( candidate.Self )]: $VALUE|=+0$"

@@ -77,10 +77,10 @@ close_colosseum_decision = {
 		is_ruler = yes
 		is_landed = yes
 		has_title = title:c_roma
+        NOT = { has_character_flag = roman_entertainment_policy_changed }
         OR = {
             has_character_modifier = hosting_colosseum_civilized
             has_character_modifier = hosting_colosseum_hellenic 
-            has_character_flag = roman_entertainment_policy_changed
         }
 	}
 
@@ -198,10 +198,10 @@ close_hippodrome_decision = {
 		is_ruler = yes
 		is_landed = yes
 		has_title = title:c_byzantion
+        NOT = { has_character_flag = roman_entertainment_policy_changed }
         OR = {
             has_character_modifier = hosting_hippodrome_civilized
-            has_character_modifier = hosting_hippodrome_hellenic 
-            has_character_flag = roman_entertainment_policy_changed
+            has_character_modifier = hosting_hippodrome_hellenic
         }
 	}
 
