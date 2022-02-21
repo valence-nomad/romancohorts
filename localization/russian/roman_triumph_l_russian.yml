@@ -1,10 +1,10 @@
 ﻿l_russian:
 
-roman_battle.0003.t:0 "Legatus Gloriae"
-roman_battle.0003.desc.opening:0 "[triumphant_legatus.GetTitledFirstName] has shown [triumphant_legatus.GetHerHis] martial acumen to be beyond reproach!"
-roman_battle.0003.desc.commander:0 "With [triumphant_legatus.GetHerHis] latest victory against [enemy_commander.GetTitledFirstName] and [enemy_commander.GetHerHis] soldiers,"
-roman_battle.0003.desc.no_commander:0 "With [triumphant_legatus.GetHerHis] latest victory in battle"
-roman_battle.0003.desc.ending:0 "[triumphant_legatus.GetSheHe] has proven [triumphant_legatus.GetHerHis] courage and puissance against Rome's enemies.\n\nHaving smashed the enemy at every turn in [triumphant_legatus.GetHerHis] campaign, it is expected that [triumphant_legatus.GetSheHe] shall be granted a triumph!"
+roman_battle.0003.t:0 "Легатская Слава"
+roman_battle.0003.desc.opening:0 "[triumphant_legatus.GetTitledFirstName] показал, что [triumphant_legatus.GetHerHis] воинская хватка должна быть безупречной!"
+roman_battle.0003.desc.commander:0 "С [triumphant_legatus.GetHerHis] последней победой над [enemy_commander.GetTitledFirstName] и [enemy_commander.GetHerHis] солдатами,"
+roman_battle.0003.desc.no_commander:0 "С [triumphant_legatus.GetHerHis] последняя победа в битве"
+roman_battle.0003.desc.ending:0 "[triumphant_legatus.GetSheHe] доказал [triumphant_legatus.GetHerHis] мужество и мощь в борьбе с врагами Рима.\n\nРазгромив врага на каждом шагу в [triumphant_legatus.GetHerHis] кампании, ожидая, что [triumphant_legatus.GetSheHe]  будет дарован триумф!"
 roman_battle.0003.a:0 "Construct a Triumphal Arch!"
 roman_battle.0003.b:0 "[triumphant_legatus.GetFirstName] has only done [triumphant_legatus.GetHerHis] duty"
 
