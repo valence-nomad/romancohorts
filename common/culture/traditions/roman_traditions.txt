@@ -175,12 +175,6 @@ tradition_roman_succession = {
 	}
 	can_pick = {
 		has_cultural_pillar = heritage_latin
-		scope:character = {
-			OR = {
-				has_title = title:e_roman_empire
-				has_title = title:e_wre
-			}
-		}
 		custom_tooltip = {
 			text = cannot_have_tradition_court_eunuchs
 			NOT = { any_in_list = { list = traits this = flag:tradition_court_eunuchs } }

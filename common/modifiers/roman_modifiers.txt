@@ -6,6 +6,12 @@ studying_latin_classics = {
         prowess = -1
 }
 
+touched_by_olympus = {
+        icon = magic_positive
+        martial = 1
+        prowess = 1
+}
+
 hosting_colosseum_civilized = {
         icon = prowess_positive
         clergy_opinion = -20
@@ -30,4 +36,37 @@ hosting_hippodrome_hellenic = {
         icon = horse_positive
         stewardship = 1
         learning = -1
+}
+
+bhakti_hellenic_generic_venus = {
+        icon = prowess_positive
+        prowess = major_skill_bonus
+        attraction_opinion = 10
+        general_opinion = 10
+}
+
+bhakti_hellenic_generic_mars = {
+        icon = martial_positive
+        martial = major_skill_bonus
+        health = 0.25
+        advantage = 2
+}
+
+bhakti_hellenic_generic_jupiter = {
+        icon = magic_positive
+        diplomacy = major_skill_bonus
+        vassal_opinion = 10
+}
+
+bhakti_hellenic_generic_dis = {
+        icon = economy_positive
+        stewardship = major_skill_bonus
+        domain_tax_mult = 0.1
+}
+
+bhakti_hellenic_generic_juno = {
+        icon = feast_positive
+        intrigue = major_skill_bonus
+        fertility = 0.25
+        dynasty_opinion = 10
 }

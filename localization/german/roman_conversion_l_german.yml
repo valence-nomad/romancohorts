@@ -1,14 +1,14 @@
 ﻿l_german:
 
-roman_conversion.0001.t:0 "Salvaged Texts"
-roman_conversion.0001.desc:0 "My antiquarian has come to me with news. Apparently, there is a small, salvageable collection of old books in one of my libraries. They appear to be well-preserved, centuries-old writings by prominent Roman figures. It is said that the Romans were masters of many subjects, and their writings could be useful for a ruler to study."
-roman_conversion.0001.a:0 "Perhaps the old Romans can shed light on how to win friends and influence people."
-roman_conversion.0001.b:0 "I have heard the Romans were exceptional administrators."
-roman_conversion.0001.c:0 "Weren't the Romans masters of warfare?"
-roman_conversion.0001.d:0 "I hope to read of Roman history and philosophy."
-roman_conversion.0001.e:0 "If the Romans were so superior, wherefore did their empire fall? Sell the trash."
+roman_conversion.0001.t:0 "Gerettete Texte"
+roman_conversion.0001.desc:0 "Mein Antiquar ist mit Neuigkeiten zu mir gekommen. Offenbar gibt es in einer meiner Bibliotheken eine kleine, noch zu rettende Sammlung alter Bücher. Es scheint sich um gut erhaltene, jahrhundertealte Schriften prominenter römischer Persönlichkeiten zu handeln. Es heißt, die Römer seien Meister in vielen Bereichen gewesen, und ihre Schriften könnten für einen Herrscher nützlich sein, um sie zu studieren.
+roman_conversion.0001.a:0 "Vielleicht können die alten Römer Aufschluss darüber geben, wie man Freunde gewinnt und Menschen beeinflusst."
+roman_conversion.0001.b:0 "Ich habe gehört, dass die Römer hervorragende Verwalter waren."
+roman_conversion.0001.c:0 "Waren die Römer nicht Meister der Kriegsführung?"
+roman_conversion.0001.d:0 "Ich hoffe, ich kann etwas über römische Geschichte und Philosophie lesen."
+roman_conversion.0001.e:0 "Wenn die Römer so überlegen waren, warum ist ihr Imperium dann untergegangen? Verkauft den Müll."
 
-convert_to_roman_culture_decision:0 "Adopt Roman Traditions"
-convert_to_roman_culture_decision_desc:0 "I have studied the works, culture, and history of the ancient Romans. Their way of life and culture is most fascinating. Perhaps we should consider adopting some of the old Roman ways into our own society, and thereby gain some strength from the masters of the world."
-convert_to_roman_culture_decision_tooltip:0 "I will become Roman"
+convert_to_roman_culture_decision:0 "Römische Traditionen übernehmen"
+convert_to_roman_culture_decision_desc:0 "Ich habe die Werke, die Kultur und die Geschichte der alten Römer studiert. Ihre Lebensweise und Kultur ist höchst faszinierend. Vielleicht sollten wir in Erwägung ziehen, einige der alten römischen Bräuche in unsere eigene Gesellschaft zu übernehmen und dadurch etwas Stärke von den Meistern der Welt zu gewinnen."
+convert_to_roman_culture_decision_tooltip:0 "Ich will römisch werden"
 convert_to_roman_culture_decision_confirm:0 "Ab antiquo, ad praesens!"

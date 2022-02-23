@@ -1,0 +1,31 @@
+tenet_bhakti = {
+		name = {
+			first_valid = {
+				triggered_desc = {
+					trigger = { religion_tag = hinduism_religion }
+					desc = tenet_bhakti_name
+				}
+				desc = tenet_bhakti_patron_god_name
+			}
+		}
+		icon = core_tenet_bhakti
+
+		piety_cost = faith_tenet_cost_mid
+
+		is_shown = {
+			OR = {
+				religion_tag = hinduism_religion
+				# With FP1, Germanics also get personal deities.
+				AND = {
+					religion_tag = germanic_religion
+					has_fp1_dlc_trigger = yes
+				}
+                # Hellenics also get personal deities
+                religion_tag = hellenism_religion
+			}
+		}
+
+		parameters = {
+			select_personal_god_active = yes
+		}
+	}

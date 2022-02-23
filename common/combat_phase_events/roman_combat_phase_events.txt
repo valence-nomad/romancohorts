@@ -1,0 +1,11 @@
+roman_phase = {
+    type = commander
+
+    is_valid = {
+        is_ai = no #Roman events are not for the AI
+    }
+
+    chance = {
+        base = 100 #sometimes commanders get things to happen to them
+    }
+}
