@@ -555,3 +555,36 @@ type = character_event
 		}
 	}
 }
+
+roman_battle.0010 = { #triggers stuff to happen during combat
+	hidden = yes
+	
+	immediate = {
+    	root = { save_scope_as = friendly_commander }
+
+	    scope:combat_side = { 
+    	    random_side_knight = { 
+        	    limit = { is_alive = yes } 
+            	save_scope_as = friendly_knight
+        	} 
+    	}
+
+    	scope:combat_side.enemy_side = {
+        	random_side_knight = {
+            	limit = { is_alive = yes }
+            	save_scope_as = enemy_knight
+        	}
+    	}
+
+		scope:friendly_commander = {
+			random_list = { #more to come later
+				100 = {
+					trigger_event = { #vision from the gods
+						id = roman_conversion.0002
+						days = 1
+					}
+				}
+			}
+		}
+	}
+}

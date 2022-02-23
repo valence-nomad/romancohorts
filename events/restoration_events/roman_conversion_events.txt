@@ -55,3 +55,471 @@ roman_conversion.0001 = {
         add_prestige = minor_prestige_gain
     }
 }
+
+#battle event for Hellenism
+roman_conversion.0002 = {
+    type = character_event
+    title = roman_conversion.0002.t
+    desc = roman_conversion.0002.desc
+
+    theme = battle
+    left_portrait = {
+        character = scope:friendly_commander
+        animation = personality_rational
+    }
+    right_portrait = {
+        character = scope:enemy_knight
+        scripted_animation = duel_wield_weapon
+    }
+    artifact = {
+        target = scope:enemy_knight.var:signature_weapon_scope
+        position = lower_right_portrait
+        trigger = { exists = scope:enemy_knight.var:signature_weapon_scope }
+    }
+
+    trigger = {
+        OR = { 
+            has_character_modifier = studying_latin_classics }
+            culture = culture:roman
+            has_trait = lunatic_1
+            has_trait = lunatic_genetic
+        }
+        scope:friendly_commander = {
+            is_ai = no #you have to be personally in command
+        }
+        scope:enemy_knight = { #can't kill or be killed by some random levy, where's the glory in that?
+            exists = yes
+            is_alive = yes
+        }
+        NOT = { has_character_modifier = touched_by_olympus }
+    }
+
+    option = {
+        name = roman_conversion.0002.a
+        custom_tooltip = roman_conversion.0002.a.tt
+        stress_impact = {
+            craven = major_stress_impact_gain
+            brave = medium_stress_impact_loss
+        }
+        if = {
+            limit = { has_trait = cautious_leader }
+            remove_trait = cautious_leader
+        }
+
+        add_trait = reckless
+
+        trigger_event = {
+            id = roman_conversion.0003
+        }
+    }
+
+    option = {
+        name = roman_conversion.0002.b
+        custom_tooltip = roman_conversion.0002.b.tt
+        stress_impact = {
+            brave = minor_stress_impact_gain
+        }
+    }
+
+    option = {
+        trigger = {
+            OR = {
+                has_trait = paranoid 
+                has_trait = craven
+                has_trait = cautious_leader
+            }
+            NOT = { has_trait = reckless }
+        }
+        name = roman_conversion.0002.c
+        custom_tooltip = roman_conversion.0002.c.tt
+        stress_impact = {
+            brave = medium_stress_impact_gain
+        }
+        add_trait = cautious_leader
+    }
+}
+
+#battle event part 2 for Hellenism
+roman_conversion.0003 = {
+    type = character_event
+    title = roman_conversion.0002.t
+    desc = {
+        random_valid = {
+            desc = roman_conversion.0003.desc.venus
+            desc = roman_conversion.0003.desc.mars
+        }
+    }
+
+    theme = battle
+    left_portrait = {
+        character = scope:friendly_commander
+        scripted_animation = duel_wield_weapon
+    }
+    right_portrait = {
+        character = scope:enemy_knight
+        scripted_animation = duel_wield_weapon
+    }
+    artifact = {
+        target = scope:friendly_commander.var:signature_weapon_scope
+        position = lower_left_portrait
+        trigger = { exists = scope:friendly_commander.var:signature_weapon_scope }
+    }
+    artifact = {
+        target = scope:enemy_knight.var:signature_weapon_scope
+        position = lower_right_portrait
+        trigger = { exists = scope:enemy_knight.var:signature_weapon_scope }
+    }
+
+    option = {
+        trigger = {
+            NOT = { scope:friendly_commander.religion = religion:hellenism_religion }
+        }
+        name = roman_conversion.0003.a
+        custom_tooltip = roman_conversion.0003.a.tt
+        duel = {
+            skill = prowess
+            target = scope:enemy_knight
+            67 = {
+                desc = roman_conversion.0003.success
+                compare_modifier = {
+                    value = scope:duel_value #
+                    multiplier = 3
+                    min = -59
+                }
+                add_prestige = 250
+                add_faith = 250
+                show_as_tooltip = {
+                    scope:enemy_knight = {
+                        death = {
+                            death_reason = death_battle
+                            killer = scope:friendly_commander
+                        }
+                    }
+                }
+                trigger_event = {
+                    id = roman_conversion.0004
+                }
+            }
+            30 = {
+                desc = roman_conversion.0003.failure
+                add_prestige = 100
+                add_faith = -100
+                add_trait = wounded_1
+                trigger_event = {
+                    id = roman_conversion.0005
+                }
+                trigger_event = {
+                    id = health.0102
+                    days = 1
+                }
+            }
+            3 = {
+                desc = roman_conversion.0003.critfail
+                scope:enemy_knight = { add_prestige = 250 }
+                show_as_tooltip = {
+                    death = {
+                        killer = scope:enemy_knight
+                        death_reason = death_battle
+                    }
+                }
+                trigger_event = {
+                    id = roman_conversion.0006
+                }
+            }
+        }
+    }
+
+    option = {
+        name = roman_conversion.0003.b
+        custom_tooltip = roman_conversion.0003.b.tt
+        duel = {
+            skill = prowess
+            target = scope:enemy_knight
+            67 = {
+                desc = roman_conversion.0003.success
+                compare_modifier = {
+                    value = scope:duel_value #
+                    multiplier = 3
+                    min = -59
+                }
+                add_prestige = 250
+                add_faith = 250
+                show_as_tooltip = {
+                    scope:enemy_knight = {
+                        death = {
+                            death_reason = death_battle
+                            killer = scope:friendly_commander
+                        }
+                    }
+                }
+                trigger_event = {
+                    id = roman_conversion.0004
+                }
+            }
+            30 = {
+                desc = roman_conversion.0003.failure
+                add_prestige = 100
+                add_faith = -100
+                add_trait = wounded_1
+                trigger_event = {
+                    id = roman_conversion.0005
+                }
+                trigger_event = {
+                    id = health.0102
+                    days = 1
+                }
+            }
+            3 = {
+                desc = roman_conversion.0003.critfail
+                scope:enemy_knight = { add_prestige = 250 }
+                show_as_tooltip = {
+                    death = {
+                        killer = scope:enemy_knight
+                        death_reason = death_battle
+                    }
+                }
+                trigger_event = {
+                    id = roman_conversion.0006
+                }
+            }
+        }
+    }
+
+    option = {
+        trigger = {
+            scope:friendly_commander.religion = religion:hellenism_religion
+        }
+        name = roman_conversion.0003.c
+        custom_tooltip = roman_conversion.0003.c.tt
+        duel = {
+            skill = prowess
+            target = scope:enemy_knight
+            65 = {
+                desc = roman_conversion.0003.success
+                compare_modifier = {
+                    value = scope:duel_value #
+                    multiplier = 3
+                    min = -59
+                }
+                add_prestige = 250
+                add_faith = 250
+                show_as_tooltip = {
+                    scope:enemy_knight = {
+                        death = {
+                            death_reason = death_battle
+                            killer = scope:friendly_commander
+                        }
+                    }
+                }
+                trigger_event = {
+                    id = roman_conversion.0004
+                }
+            }
+            30 = {
+                desc = roman_conversion.0003.failure
+                add_prestige = 100
+                add_piety = -100
+                add_trait = wounded_1
+                trigger_event = {
+                    id = roman_conversion.0005
+                }
+                trigger_event = {
+                    id = health.0102
+                    days = 1
+                }
+            }
+            5 = {
+                desc = roman_conversion.0003.critfail
+                scope:enemy_knight = { add_prestige = 250 }
+                show_as_tooltip = {
+                    death = {
+                        killer = scope:enemy_knight
+                        death_reason = death_battle
+                    }
+                }
+                trigger_event = {
+                    id = roman_conversion.0006
+                }
+            }
+        }
+    }
+}
+
+roman_conversion.0004 = {
+    type = character_event
+    title = roman_conversion.0002.t
+    desc = roman_conversion.0004.desc
+
+    immediate = {
+        scope:enemy_knight = {
+            death = {
+                death_reason = death_battle
+                killer = scope:player_commander
+            }
+        }
+    }
+
+    theme = battle
+    left_portrait = {
+        character = scope:friendly_commander
+        animation = war_over_win
+    }
+
+    option = {
+        trigger = {
+            NOT = { scope:friendly_commander.religion = religion:hellenism_religion }
+        }
+        name = roman_conversion.0004.a
+        custom_tooltip = roman_conversion.0004.a.tt
+        add_character_modifier = { modifier = touched_by_olympus years = 5 }
+    }
+
+    option = {
+        name = roman_conversion.0004.b
+        custom_tooltip = roman_conversion.0004.b.tt
+        add_prestige = 250
+    }
+
+    option = {
+        trigger = {
+            scope:friendly_commander.religion = religion:hellenism_religion
+        }
+        name = roman_conversion.0004.c
+        custom_tooltip = roman_conversion.0004.c.tt
+        add_character_modifier = { modifier = touched_by_olympus years = 5 }
+        add_piety = 250
+    }
+}
+
+roman_conversion.0005 = {
+    type = character_event
+    title = roman_conversion.0002.t
+    desc = roman_conversion.0005.desc
+
+    theme = battle
+    left_portrait = {
+        character = scope:friendly_commander
+        animation = severely_wounded
+    }
+    right_portrait = {
+        character = scope:enemy_knight
+        animation = personality_bold
+    }
+
+    option = {
+        name = roman_conversion.0005.a
+        custom_tooltip = roman_conversion.0005.a.tt
+    }
+
+    option = {
+        trigger = {
+            scope:friendly_commander.religion = religion:hellenism_religion 
+        }
+        name = roman_conversion.0005.b
+        custom_tooltip = roman_conversion.0005.b.tt
+        add_piety = 50
+    }
+}
+
+roman_conversion.0006 = {
+    type = character_event
+    title = roman_conversion.0002.t
+    desc = roman_conversion.0006.desc
+
+    immediate = {
+        scope:player_commander = {
+            death = {
+                death_reason = death_battle
+                killer = scope:enemy_knight
+            }
+        }
+    }
+
+    theme = battle
+    right_portrait = {
+        character = scope:enemy_knight
+        animation = war_over_win
+    }
+
+    option = {
+        trigger = {
+            NOT = { scope:friendly_commander.religion = religion:hellenism_religion }
+        }
+        name = roman_conversion.0006.a
+        custom_tooltip = roman_conversion.0006.a.tt
+    }
+
+    option = {
+        trigger = {
+            scope:friendly_commander.religion = religion:hellenism_religion
+        }
+        name = roman_conversion.0006.b
+        custom_tooltip = roman_conversion.0006.b.tt
+    }
+}
+
+roman_conversion.0101 = {
+	type = character_event
+	title = roman_conversion.0101.t
+	desc = roman_conversion.0101.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	# Venus
+	option = {
+		name = roman_conversion.0101.venus
+		trigger = {
+			NOT = { has_character_modifier = bhakti_hellenic_generic_venus }
+		}
+		set_bhakti_effect = { BHAKTI = bhakti_hellenic_generic_venus }
+	}
+
+	# Mars
+	option = {
+		name = religious_decision.0101.mars
+		trigger = {
+			NOT = { has_character_modifier = bhakti_hellenic_generic_mars }
+		}
+		set_bhakti_effect = { BHAKTI = bhakti_hellenic_generic_mars }
+	}
+
+	# Jupiter
+	option = {
+		name = roman_conversion.0101.jupiter
+		trigger = {
+			NOT = { has_character_modifier = bhakti_hellenic_generic_jupiter }
+		}
+		set_bhakti_effect = { BHAKTI = bhakti_hellenic_generic_jupiter }
+	}
+
+	# Dis
+	option = {
+		name = roman_conversion.0101.dis
+		trigger = {
+			NOT = { has_character_modifier = bhakti_hellenic_generic_dis }
+		}
+		set_bhakti_effect = { BHAKTI = bhakti_hellenic_generic_dis }
+	}
+
+	# Juno
+	option = {
+		name = roman_conversion.0101.juno
+		trigger = {
+			NOT = { has_character_modifier = bhakti_hellenic_generic_juno }
+		}
+		set_bhakti_effect = { BHAKTI = bhakti_hellenic_generic_juno }
+	}
+
+	# Opt-Out
+	option = {
+		name = roman_conversion.0101.optout
+		flavor = roman_conversion.0101.flavor
+
+		ai_chance = {
+			base = 0
+		}		
+	}
+}

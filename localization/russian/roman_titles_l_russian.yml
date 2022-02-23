@@ -1,0 +1,43 @@
+﻿l_russian:
+
+### Roman ###
+# Feudal 
+ baron_feudal_male_roman:1 "Баро"
+ baron_feudal_female_roman:1 "Баронисса"
+ barony_feudal_roman:1 "Каструм"
+ count_feudal_male_roman:0 "Комес"
+ count_feudal_female_roman:1 "Комитисса"
+ county_feudal_roman:0 "Комис"
+ duke_feudal_male_roman:1 "Губернатор"
+ duke_feudal_female_roman:1 "Губернатор"
+ duchy_feudal_roman:0 "Провинция"
+ king_feudal_male_roman:0 "Наместник"
+ king_feudal_female_roman:0 "Наместница"
+ kingdom_feudal_roman:0 "Диоцез"
+ emperor_feudal_male_roman:1 "Император"
+ emperor_feudal_female_roman:1 "Императрица"
+ empire_feudal_roman:1 "Империя"
+
+# Republic
+ baron_republic_male_roman:0 "Магистр"
+ baron_republic_female_roman:0 "Магистра"
+ count_republic_male_roman:0 "Префект"
+ count_republic_female_roman:0 "Префект"
+ duke_republic_male_roman:0 "Трибун"
+ duke_republic_female_roman:0 "Трибун"
+ duchy_republic_roman:0 "Лига"
+ king_republic_male_roman:0 "Консул"
+ king_republic_female_roman:0 "Консул"
+ kingdom_republic_roman:0 "Республика"
+ emperor_republic_male_roman:0 "Принцепс"
+ emperor_republic_female_roman:0 "Принцесса"
+ empire_republic_roman:0 "Федерация"
+ 
+ # Independent
+ king_feudal_male_roman_independent:0 "Рекс"
+ king_feudal_female_roman_independent:0 "Регина"
+ kingdom_feudal_roman_independent:0 "Регнум"
+ duke_feudal_male_roman_independent:1 "Дукс"
+ duke_feudal_female_roman_independent:1 "Дукисса"
+ duchy_feudal_roman_independent:0 "Дукат"
+ county_republic_roman_independent:0 "Город-государство"

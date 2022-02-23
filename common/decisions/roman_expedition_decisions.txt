@@ -1,5 +1,5 @@
 create_roman_expedition_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
 
 	desc = create_roman_expedition_desc
 	selection_tooltip = create_roman_expedition_tooltip
