@@ -79,7 +79,7 @@ roman_conversion.0002 = {
 
     trigger = {
         OR = { 
-            has_character_modifier = studying_latin_classics }
+            has_character_modifier = studying_latin_classics
             culture = culture:roman
             has_trait = lunatic_1
             has_trait = lunatic_genetic
@@ -479,7 +479,7 @@ roman_conversion.0101 = {
 
 	# Mars
 	option = {
-		name = religious_decision.0101.mars
+		name = roman_conversion.0101.mars
 		trigger = {
 			NOT = { has_character_modifier = bhakti_hellenic_generic_mars }
 		}

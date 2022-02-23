@@ -1,11 +1,11 @@
-l_english:
+﻿l_english:
 
 holy_order_legion_of_jupiter:0 "Legio Iuppitis Lucetus"
 holy_order_legion_of_venus:0 "Legio Veneris Victrix"
 holy_order_legion_of_mars:0 "Legio Martis Ultrix"
 holy_order_legion_of_minerva:0 "Legio Minervis Glorius"
 
-convert_to_hellenism_decision:0 "Adopt Latin paganism"
+convert_to_hellenism_decision:0 "Adopt Latin Paganism"
 convert_to_hellenism_decision_desc:0 "Rome was long ago led astray by false gods and false religions, leading to its downfall and utter ruin. I have seen the signs and heard the clarion call, of grey-eyed Minerva and glorious Mars, of Venus Victrix and Jupiter Feretrius, and I will return their cults to their old glory."
 convert_to_hellenism_decision_tooltip:0 "I will worship the Hellenic deities"
 convert_to_hellenism_decision_confirm:0 "Veneris posteri sumus!"
