@@ -1,0 +1,101 @@
+raise_wre_legion_decision = {
+    picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
+
+    desc = raise_wre_legion_decision_desc
+    selection_tooltip = raise_wre_legion_decision_tooltip
+    major = yes
+
+    ai_check_interval = 12
+
+    is_shown = {
+        has_government = imperial_roman_government
+    }
+
+    is_valid = {
+        highest_held_title_tier >= 4 #must be a legatus or an emperor to raise a fresh legion
+        OR = {
+            prestige_level >= 3 #Need some renown to be able to raise a legion
+            has_title = title:e_wre #unless you're the Emperor
+        }
+    }
+
+    effect = {
+        change_government = imperial_roman_government
+        trigger_event = {
+            id = roman_conversion.0201
+        }
+    }
+
+    cost = {
+        gold = { value = 5000 }
+        prestige = { value = 1000 }
+    }
+}
+
+raise_byz_legion_decision = {
+    picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
+
+    desc = raise_byz_legion_decision_desc
+    selection_tooltip = raise_byz_legion_decision_tooltip
+    major = yes
+
+    ai_check_interval = 12
+
+    is_shown = {
+        has_government = imperial_roman_government
+    }
+
+    is_valid = {
+        highest_held_title_tier >= 4 #must be a legatus or an emperor to raise a fresh legion
+        OR = {
+            prestige_level >= 3 #Need some renown to be able to raise a legion
+            has_title = title:e_byzantium #unless you're the Emperor
+        }
+    }
+
+    effect = {
+        change_government = imperial_roman_government
+        trigger_event = {
+            id = roman_conversion.0201
+        }
+    }
+
+    cost = {
+        gold = { value = 5000 }
+        prestige = { value = 1000 }
+    }
+}
+
+raise_re_legion_decision = {
+    picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
+
+    desc = raise_re_legion_decision_desc
+    selection_tooltip = raise_re_legion_decision_tooltip
+    major = yes
+
+    ai_check_interval = 12
+
+    is_shown = {
+        has_government = imperial_roman_government
+    }
+
+    is_valid = {
+        highest_held_title_tier >= 4 #must be a legatus or an emperor to raise a fresh legion
+        OR = {
+            prestige_level >= 3 #Need some renown to be able to raise a legion
+            has_title = title:e_roman_empire #unless you're the Emperor
+        }
+    }
+
+    effect = {
+        change_government = imperial_roman_government
+        trigger_event = {
+            id = roman_conversion.0201
+        }
+    }
+
+    cost = {
+        gold = { value = 5000 }
+        prestige = { value = 1000 }
+    }
+}

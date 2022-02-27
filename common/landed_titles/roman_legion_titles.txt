@@ -1,0 +1,252 @@
+d_palatini = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_i = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_ii = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_iii = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_iv = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_v = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_vi = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_vii = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_viii = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_ix = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_x = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xi = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xii = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xiii = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xiv = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xv = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xvi = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xvii = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xviii = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xix = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_legio_xx = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_roma # Rome
+}
+d_tagma_varangon = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_scholai = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_exkoubitoi = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_vigla = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_hikanatoi = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_noumeroi = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_optimatoi = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_vestiaritai = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_hetaireia = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_vardariotai = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tagma_athanatoi = {
+	color = { 165 16 16 }
+	color2 = { 255 215 0 }
+
+	capital = c_byzantion #Constantinople
+}
+d_tourma_opsikiou_alpha = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tourma_opsikiou_beta = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tourma_anatolikon_alpha = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tourma_anatolikon_beta = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tourma_thrakesion_alpha = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tourma_thrakesion_beta = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tourma_armeniakon_alpha = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tourma_armeniakon_beta = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tourma_peloponnesou_alpha = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}
+d_tourma_peloponnesou_beta = {
+    color = { 165 16 16 }
+	color2 = { 255 215 0 }
+	
+	capital = c_byzantion #Constantinople
+}

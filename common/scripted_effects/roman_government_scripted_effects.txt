@@ -1,0 +1,175 @@
+imperial_legitimacy_minor_loss = {
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+        }
+    change_variable = { name = imperial_legitimacy value = -5 } 
+    }
+}
+
+imperial_legitimacy_medium_loss = {
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+        }
+    change_variable = { name = imperial_legitimacy value = -10 }
+    }
+}
+
+imperial_legitimacy_major_loss = {
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+        }
+    change_variable = { name = imperial_legitimacy value = -20 }
+    }
+}
+
+imperial_legitimacy_catastrophic_loss = {
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+        }
+    change_variable = { name = imperial_legitimacy value = -30 }
+    }
+}
+
+imperial_legitimacy_minor_gain = {
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+        }
+    change_variable = { name = imperial_legitimacy value = 2 } }
+    }
+
+imperial_legitimacy_medium_gain = {
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+        }
+    change_variable = { name = imperial_legitimacy value = 5 } }
+    }
+
+imperial_legitimacy_major_gain = {
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+        }
+    change_variable = { name = imperial_legitimacy value = 10 } 
+    }
+}
+
+imperial_legitimacy_massive_gain = {
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+        }
+    change_variable = { name = imperial_legitimacy value = 15 } 
+    }
+}
+
+legitimacy_modifiers_effect = {
+    if = {
+        limit = { 
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+            NAND = {
+                has_title = title:e_byzantium
+                has_title = title:e_wre
+                has_title = title:e_roman_empire
+            }
+            var:imperial_legitimacy >= 30
+            var:imperial_legitimacy <= 60
+        }
+        add_character_modifier = { modifier = high_legitimacy days = 365 }
+    }
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+            NAND = {
+                has_title = title:e_byzantium
+                has_title = title:e_wre
+                has_title = title:e_roman_empire
+            }
+            var:imperial_legitimacy >= 61
+        }
+        add_character_modifier = { modifier = very_high_legitimacy days = 365 }
+    }
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+            OR = {
+                has_title = title:e_byzantium
+                has_title = title:e_wre
+                has_title = title:e_roman_empire
+            }
+            var:imperial_legitimacy <= 20
+        }
+        add_character_modifier = { modifier = very_low_legitimacy days = 365 }
+    }
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+            OR = {
+                has_title = title:e_byzantium
+                has_title = title:e_wre
+                has_title = title:e_roman_empire
+            }
+            var:imperial_legitimacy >= 21
+            var:imperial_legitimacy <= 40
+        }
+        add_character_modifier = { modifier = low_legitimacy days = 365 }
+    }
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+            OR = {
+                has_title = title:e_byzantium
+                has_title = title:e_wre
+                has_title = title:e_roman_empire
+            }
+            var:imperial_legitimacy >= 41
+            var:imperial_legitimacy <= 60
+        }
+        add_character_modifier = { modifier = medium_legitimacy days = 365 }
+    }
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+            OR = {
+                has_title = title:e_byzantium
+                has_title = title:e_wre
+                has_title = title:e_roman_empire
+            }
+            var:imperial_legitimacy >= 61
+            var:imperial_legitimacy <= 80
+        }
+        add_character_modifier = { modifier = high_legitimacy days = 365 }
+    }
+    if = {
+        limit = {
+            has_government = imperial_roman_government
+            exists = root.var:imperial_legitimacy
+            OR = {
+                has_title = title:e_byzantium
+                has_title = title:e_wre
+                has_title = title:e_roman_empire
+            }
+            var:imperial_legitimacy >= 81
+        }
+        add_character_modifier = { modifier = very_high_legitimacy days = 365 }
+    }
+}

@@ -239,3 +239,42 @@ close_hippodrome_decision = {
         }
     }
 }
+
+establish_imperial_administration_decision = {
+    picture = "gfx/interface/illustrations/decisions/decision_roman.dds"
+
+    desc = establish_imperial_administration_decision_desc
+    selection_tooltip = establish_imperial_administration_decision_tooltip
+    major = yes
+
+    ai_check_interval = 0
+
+    is_shown = {
+        is_ruler = yes
+        is_landed = yes
+        culture = {
+            has_cultural_parameter = latin_imperial_government_allowed
+        }
+        highest_held_title_tier = 5
+    }
+
+    is_valid = {
+        has_realm_law = crown_authority_3 #must NOT be tribal to become imperial
+    }
+
+    effect = {
+        change_government = imperial_roman_government
+        set_variable = {
+            name = imperial_legitimacy
+            value = 100
+        }
+        trigger_event = {
+            id = roman_conversion.0201
+        }
+    }
+
+    cost = {
+        gold = { value = 5000 }
+        prestige = { value = 1000 }
+    }
+}

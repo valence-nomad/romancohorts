@@ -70,3 +70,44 @@ bhakti_hellenic_generic_juno = {
         fertility = 0.25
         dynasty_opinion = 10
 }
+
+very_low_legitimacy = {
+        icon = county_modifier_corruption_negative
+        vassal_opinion = -30
+        general_opinion = -30
+        domain_tax_mult = -0.2
+        court_opinion = -30
+}
+
+low_legitimacy = {
+        icon = county_modifier_corruption_negative
+        vassal_opinion = -20
+        general_opinion = -20
+        domain_tax_mult = -0.1
+        court_opinion = -20
+}
+
+average_legitimacy = {
+        icon = county_modifier_corruption_negative
+        vassal_opinion = -10
+        general_opinion = -10
+        court_opinion = -10
+}
+
+high_legitimacy = {
+        icon = county_modifier_corruption_positive
+        vassal_opinion = 5
+        general_opinion = 5
+        domain_tax_mult = 0.05
+        court_opinion = 5
+        fellow_vassal_opinion = 10
+}
+
+very_high_legitimacy = {
+        icon = county_modifier_corruption_positive
+        vassal_opinion = 10
+        general_opinion = 10
+        domain_tax_mult = 0.1
+        court_opinion = 10
+        fellow_vassal_opinion = 20
+}

@@ -1,0 +1,99 @@
+KingMaleRomanImperial = {
+    type = character
+    text = {
+        trigger = { #No spousal trigger - you don't get to be a legatus because your spouse is a legatus
+            vassal_contract_has_flag = military_province
+        }
+        localization_key = legatus_imperial_roman_male
+    }
+    text = {
+        trigger = { #No spousal trigger - you don't get to be a senator because your spouse is a senator 
+            vassal_contract_has_flag = senatorial_province
+        }
+        localization_key = senator_imperial_roman_male
+    }
+    text = {
+        fallback = yes
+        localization_key = king_default_imperial_roman_male
+    }
+}
+
+KingFemaleRomanImperial = {
+    type = character
+    text = {
+        trigger = { #No spousal trigger - you don't get to be a legatus because your spouse is a legatus
+            vassal_contract_has_flag = military_province
+        }
+        localization_key = legatus_imperial_roman_female
+    }
+    text = {
+        trigger = { #No spousal trigger - you don't get to be a senator because your spouse is a senator 
+            vassal_contract_has_flag = senatorial_province
+        }
+        localization_key = senator_imperial_roman_female
+    }
+    text = {
+        fallback = yes
+        localization_key = king_default_imperial_roman_female
+    }
+}
+
+KingMaleGreekImperial = {
+    type = character
+    text = {
+        trigger = { #No spousal trigger - you don't get to be a legatus because your spouse is a legatus
+            vassal_contract_has_flag = military_province
+        }
+        localization_key = legatus_imperial_greek_male
+    }
+    text = {
+        trigger = { #No spousal trigger - you don't get to be a senator because your spouse is a senator 
+            vassal_contract_has_flag = senatorial_province
+        }
+        localization_key = senator_imperial_greek_male
+    }
+    text = {
+        fallback = yes
+        localization_key = king_default_imperial_greek_male
+    }
+}
+
+KingFemaleGreekImperial = {
+    type = character
+    text = {
+        trigger = { #No spousal trigger - you don't get to be a legatus because your spouse is a legatus
+            vassal_contract_has_flag = military_province
+        }
+        localization_key = legatus_imperial_greek_female
+    }
+    text = {
+        trigger = { #No spousal trigger - you don't get to be a senator because your spouse is a senator 
+            vassal_contract_has_flag = senatorial_province
+        }
+        localization_key = senator_imperial_greek_female
+    }
+    text = {
+        fallback = yes
+        localization_key = king_default_imperial_greek_female
+    }
+}
+
+KingdomImperial = {
+    type = character
+    text = {
+        trigger = {
+            vassal_contract_has_flag = military_province
+        }
+        localization_key = kingdom_military_imperial
+    }
+    text = {
+        trigger = {
+            vassal_contract_has_flag = senatorial_province
+        }
+        localization_key = kingdom_senator_imperial
+    }
+    text = {
+        fallback = yes
+        localization_key = kingdom_default_imperial
+    }
+}

@@ -82,3 +82,244 @@ check_hippodrome_pulse = {
         }
     }
 }
+
+yearly_global_pulse = {
+    on_actions = { 
+        imperial_legitimacy_pulse
+        trait_gain_legitimacy_pulse
+        trait_lose_legitimacy_pulse
+    }
+}
+
+quarterly_playable_pulse = {
+    on_actions = {
+        in_debt_legitimacy_pulse
+        low_control_legitimacy_pulse
+        very_rich_legitimacy_pulse
+        low_military_legitimacy_pulse
+        high_military_legitimacy_pulse
+        legitimacy_modifiers_pulse
+    }
+}
+
+legitimacy_modifiers_pulse = {
+    effect = {
+        legitimacy_modifiers_effect
+    }
+}
+
+imperial_legitimacy_pulse = { #maintenance behind the scenes to check characters' imperial legitimacies
+    trigger = {
+        has_government = imperial_roman_government
+        highest_held_title_tier >= 3 #dukes or higher may be able to become emperor
+    }
+
+    effect = {
+        if = {
+            limit = { NOT = { exists = var:imperial_legitimacy } }
+            set_variable = { name = imperial_legitimacy value = 0 } #if you somehow don't have imperial legit, start you off at the lowest level
+        }
+        else_if = {
+            limit = { var:imperial_legitimacy < 0 }
+            set_variable = { name = imperial_legitimacy value = 0 } #if you somehow managed to get below 0 imperial legitimacy, we bring you back to 0
+        }
+        else_if = {
+            limit = { var:imperial_legitimacy > 100 }
+            set_variable = { name = imperial_legitimacy value = 100} #if you somehow managed to get above 100 imperial legitimacy, we bring you back to 100
+        }
+    }
+}
+
+in_debt_legitimacy_pulse = {
+    trigger = {
+        gold < 0
+        has_government = imperial_roman_government
+        exists = var:imperial_legitimacy
+    }
+    effect = {
+        imperial_legitimacy_minor_loss
+    }
+}
+
+low_control_legitimacy_pulse = {
+    trigger = {
+        OR = {
+            AND = { 
+                has_title = c_roma
+                title:c_roma = { county_control < low_county_control_limit }
+            }
+            AND = { 
+                has_title = c_byzantion
+                title:c_byzantion = { county_control < low_county_control_limit }
+            }
+        }
+        has_government = imperial_roman_government
+        exists = var:imperial_legitimacy
+    }
+    effect = {
+        imperial_legitimacy_minor_loss
+    }
+}
+
+on_fired_from_council = {
+    effect = {
+        imperial_legitimacy_minor_loss
+    }
+}
+
+trait_lose_legitimacy_pulse = {
+    trigger = {
+        OR = {
+            has_trait = lunatic_1
+            has_trait = lunatic_genetic
+            has_trait = intellect_bad_1
+            has_trait = intellect_bad_2
+            has_trait = intellect_bad_3
+            has_trait = physique_bad_1
+            has_trait = physique_bad_2
+            has_trait = physique_bad_3
+            has_trait = blind
+            has_trait = arbitrary
+            has_trait = sadistic
+            has_trait = eunuch
+        }
+    }
+    effect = {
+        imperial_legitimacy_medium_loss
+    }
+}
+
+low_military_legitimacy_pulse = {
+    trigger = {
+        OR = {
+            AND = {
+                exists = liege
+                max_military_strength < liege.max_military_strength
+                is_ai = no #help out the AI so that they don't lose legitimacy for being weaker than a player
+            }
+            AND = {
+                NOT = { exists = liege }
+                max_military_strength < any_vassal.max_military_strength
+            }
+        }
+    }
+    effect = {
+        imperial_legitimacy_medium_loss
+    }
+}
+
+on_title_lost = {
+    effect = {
+        imperial_legitimacy_medium_loss
+    }
+}
+
+on_rank_down = {
+    effect = {
+        imperial_legitimacy_major_loss
+    }
+}
+
+on_prestige_level_loss = {
+    effect = {
+        imperial_legitimacy_major_loss
+    }
+}
+
+on_explicit_claim_loss = {
+    effect = {
+        imperial_legitimacy_catastrophic_loss
+    }
+}
+very_rich_legitimacy_pulse = {
+    trigger = {
+        gold > 10000
+        has_government = imperial_roman_government
+        exists = var:imperial_legitimacy
+    }
+    effect = {
+        imperial_legitimacy_minor_gain
+    }
+}
+
+on_rank_up = {
+    effect = {
+        root = imperial_legitimacy_minor_gain
+    }
+}
+
+on_title_gain_usurpation = {
+    effect = {
+        imperial_legitimacy_minor_gain
+    }
+}
+
+on_title_gain_inheritance = {
+    effect = {
+        imperial_legitimacy_minor_gain
+    }
+}
+
+on_title_gain = {
+    effect = {
+        imperial_legitimacy_medium_gain
+    }
+}
+
+on_prestige_level_gain = {
+    effect = {
+        imperial_legitimacy_medium_gain
+    }
+}
+
+on_war_won_defender = {
+    effect = {
+        scope:defender = imperial_legitimacy_medium_gain
+    }
+}
+
+on_war_won_attacker = {
+    effect = {
+        scope:attacker = imperial_legitimacy_medium_gain
+    }
+}
+
+trait_gain_legitimacy_pulse = {
+    trigger = {
+        OR = {
+            has_trait = born_in_the_red
+            has_trait = born_in_the_purple
+            has_trait = legatus
+        }
+    }
+    effect = {
+        imperial_legitimacy_major_gain
+    }
+}
+
+high_military_legitimacy_pulse = {
+    trigger = {
+        AND = {
+            exists = liege
+            max_military_strength > liege.max_military_strength
+        } # no gain for being stronger than vassals, no one's impressed by the imperator having large armies
+    }
+    effect = {
+        imperial_legitimacy_major_gain
+    }
+}
+
+on_explicit_claim_gain = {
+    effect = {
+        if = {
+            limit = {
+                OR = {
+                    scope:title = title:e_byzantium
+                    scope:title = title:e_roman_empire
+                    scope:title = title:e_wre
+                }
+            }
+            imperial_legitimacy_massive_gain
+        }
+    }
+}

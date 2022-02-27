@@ -89,3 +89,16 @@ create_wre_scripted_effect = {
 		}
 	}
 }
+
+convert_whole_realm_to_imperial_effect = {
+	change_government = imperial_roman_government #Just in case for some reason your government didn't become imperial when you hit the decision
+	hidden_effect = {
+		#Let's get down to business, to convert the Huns
+		every_vassal_or_below = {
+			limit = {
+				change_government = imperial_roman_government
+				
+			}
+		}
+	}
+}

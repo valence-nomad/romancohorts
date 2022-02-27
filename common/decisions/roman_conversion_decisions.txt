@@ -96,19 +96,19 @@ convert_to_hellenism_decision = {
 	effect = {
 		set_character_faith = faith:hellenic_pagan
 		trigger_event = {
-			id = faith.conversion.0002
+			id = faith_conversion.0002
 		}
 		trigger_event = {
-			id = faith.conversion.0003
+			id = faith_conversion.0003
 		}
 		trigger_event = {
-			id = faith.conversion.0005
+			id = faith_conversion.0005
 		}
 		trigger_event = {
-			id = faith.conversion.1001
+			id = faith_conversion.1001
 		}
 		trigger_event = {
-			id = faith.conversion.1101
+			id = faith_conversion.1101
 		}
 	}
 }

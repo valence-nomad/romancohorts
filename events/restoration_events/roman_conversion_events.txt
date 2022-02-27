@@ -523,3 +523,21 @@ roman_conversion.0101 = {
 		}		
 	}
 }
+
+roman_conversion.0201 = {
+    type = character_event
+    title = roman_conversion.0201.t
+    desc = roman_conversion.0201.desc
+    theme = roman_triumph
+    left_portrait = {
+        character = root
+        animation = personality_honorable
+    }
+
+    option = {
+        name = roman_conversion.0201.a
+        show_as_tooltip = {
+            convert_whole_realm_to_imperial_effect = yes
+        }
+    }
+}

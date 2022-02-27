@@ -1,0 +1,155 @@
+imperial_roman_government_taxes = {
+    display_mode = tree
+    icon = gold_icon
+    obligation_levels = {
+        imperial_tax_exempt = {
+            position = { 0 0 }
+            tax = 0
+            vassal_opinion = 10
+
+            ai_liege_desire = 1
+            ai_vassal_desire = 5
+        }
+        imperial_tax_low = {
+            parent = imperial_tax_exempt
+            position = { 1 0 }
+            tax = 0.1
+            vassal_opinion = 5
+
+            ai_liege_desire = 2
+            ai_vassal_desire 4
+        }
+        imperial_tax_normal = {
+            parent = imperial_tax_low
+            position = { 2 0 }
+            tax = 0.2
+
+            ai_liege_desire = 3
+            ai_vassal_desire = 3
+        }
+        imperial_tax_high = {
+            parent = imperial_tax_normal
+            position = { 3 0 }
+            tax = 0.3
+            vassal_opinion = -10
+
+            ai_liege_desire = 4
+            ai_vassal_desire = 2
+        }
+        imperial_tax_extortionate = {
+            parent = imperial_tax_high
+            position = { 4 0 }
+            tax = 0.4
+            vassal_opinion = -20
+
+            ai_liege_desire = 5
+            ai_vassal_desire = 1
+        }
+    }
+}
+
+imperial_roman_government_levies = {
+    display_mode = tree
+    icon = soldier_icon
+    obligation_levels = {
+        imperial_levies_exempt = {
+            position = { 0 0 }
+            levies = 0
+            vassal_opinion = 10
+
+            ai_liege_desire = 1
+            ai_vassal_desire = 5
+        }
+        imperial_levies_low = {
+            parent = imperial_levies_exempt
+            position = { 1 0 }
+            levies = 0.1
+            vassal_opinion = 5
+
+            ai_liege_desire = 2
+            ai_vassal_desire 4
+        }
+        imperial_levies_normal = {
+            parent = imperial_levies_low
+            position = { 2 0 }
+            levies = 0.2
+
+            ai_liege_desire = 3
+            ai_vassal_desire = 3
+        }
+        imperial_levies_high = {
+            parent = imperial_levies_normal
+            position = { 3 0 }
+            levies = 0.3
+            vassal_opinion = -10
+
+            ai_liege_desire = 4
+            ai_vassal_desire = 2
+        }
+        imperial_levies_extortionate = {
+            parent = imperial_levies_high
+            position = { 4 0 }
+            levies = 0.4
+            vassal_opinion = -20
+
+            ai_liege_desire = 5
+            ai_vassal_desire = 1
+        }
+    }
+}
+
+imperial_province_type = {
+    display_mode = radiobutton
+    is_shown = {
+        always = no
+    }
+    is_valid = {
+        scope:vassal.primary_title_tier > tier_duchy #provinces are kingdom-tier designations
+        scope:liege = { is_ai = no } #Don't want to deal with AI balancing rn
+    }
+    obligation_levels = {
+        imperial_province_military = { #Legion command; the province helps with military maintenance, but you get less from it
+            position = { 0 1 }
+            tax_factor = -0.5
+            levies_factor = -0.8
+
+            liege_modifier = {
+                men_at_arms_maintenance = -0.08
+                army_maintenance_mult = -0.04
+		        heavy_infantry_max_size_add = 2
+                skirmishers_max_size_add = 2
+		        heavy_cavalry_max_size_add = 2
+                light_cavalry_max_size_add = 2
+            }
+            vassal_modifier = {
+                men_at_arms_maintenance = -0.05
+		        heavy_infantry_max_size_add = 2
+		        heavy_cavalry_max_size_add = 2
+            }
+
+            flag = military_province
+        }
+        imperial_province_governor = { #Standard governorship; province does what a province does
+            position = { 1 1 }
+            default = yes
+        }
+        imperial_province_senator = { #Province is a senatorial province; great for civil, but no contribution to military
+            position = { 1 2 }
+            tax_factor = 0.3
+            levies_factor = -0.8
+
+            liege_modifier = {
+                tax_mult = 0.05
+            }
+            vassal_modifier = {
+                tax_mult = 0.05
+                development_growth_factor = medium_development_growth_gain
+                fellow_vassal_opinion = 10
+                owned_personal_scheme_success_chance_add = 10
+                owned_hostile_scheme_success_chance_add = 10
+            }
+
+            flag = senatorial_province
+        }
+    }
+}
