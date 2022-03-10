@@ -132,3 +132,35 @@ legatus = {
 		}
 	}
 }
+
+prefect = {
+	fame = yes
+	can_inherit = no
+
+	martial = 3
+	prowess = 2
+	
+	shown_in_ruler_designer = no
+	
+	desc = trait_prefect_fallback_desc
+	
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_prefect_fallback_dead
+			}
+			triggered_desc = {
+				trigger = {
+					is_female = yes
+				}
+				desc = trait_prefect_female
+			}
+			desc = trait_prefect_male
+		}
+	}
+	
+	ai_honor = 5
+	ai_greed = 5
+	ai_boldness = 5
+}

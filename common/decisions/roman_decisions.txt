@@ -174,7 +174,7 @@ restore_roman_empire_western_decision = {
 	effect = {
 		custom_tooltip = restore_roman_empire_as_west_decision_effect_tooltip
 		show_as_tooltip = {
-			create_roman_empire_scripted_effect = yes
+			create_roman_empire_western_scripted_effect = yes
 		}
 		trigger_event = {
 			id = wre_restoration.0011

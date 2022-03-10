@@ -16,3 +16,9 @@ trait_legatus_male_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been ho
 trait_legatus_fallback_dead:0 "Legatus Romanum"
 trait_legatus_female:0 "Legata"
 trait_legatus_fallback_male:0 "Legate"
+
+trait_prefect:0 "Praefectus Legionis"
+trait_prefect_fallback_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been entrusted with the command of a Roman legion, and as such, commands a certain amount of respect."
+trait_legatus_female:0 "Praefecta"
+trait_legatus_male:0 "Praefecte"
+trait_prefect_fallback_dead:0 "Praefectus Legionis"

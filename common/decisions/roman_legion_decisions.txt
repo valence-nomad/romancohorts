@@ -20,15 +20,23 @@ raise_wre_legion_decision = {
     }
 
     effect = {
-        change_government = imperial_roman_government
-        trigger_event = {
-            id = roman_conversion.0201
+        custom_tooltip = raise_legion_decision_effect_message
+        hidden_effect = {
+            create_character = {
+                template = legion_legatus_character
+                location = root.capital_province
+                save_scope_as = leader
+            }
+
+            create_legion = {
+                leader = scope:leader
+            }
         }
     }
 
     cost = {
-        gold = { value = 5000 }
-        prestige = { value = 1000 }
+        gold = { value = 5000 } # The sinews of war are unlimited money
+        prestige = { value = 1000 } # But it doesn't hurt to be well-known
     }
 }
 

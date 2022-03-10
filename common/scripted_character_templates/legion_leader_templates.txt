@@ -1,0 +1,73 @@
+legion_legatus_character = {
+    age = { 30 45 }
+    trait = prefect
+    
+    #Education
+    random_traits_list = {
+        count = 1
+        education_martial_1 = { #Really bad officers don't make prefect without (good) connections
+            weight = { base = 5 }
+        }
+        education_martial_2 = { #Not uncommon to get bad officers
+            weight = { base = 15 }
+        }
+        education_martial_3 = { #Roman military can get decent officers, hopefully
+            weight = { base = 25 }
+        }
+        education_martial_4 = { #Exceedingly rare to get such an amazing general
+            weight = { base = 5 }
+        }
+        education_diplomacy_1 = { #Bad orators are not able to talk the emperor into a generalship
+            weight = { base = 5 }
+        }
+        education_diplomacy_2 = { #It's a political stepping stone, who cares if you're good at it
+            weight = { base = 15 }
+        }
+        education_diplomacy_3 = { #I just want to serve Rome
+            weight = { base = 20 }
+        }
+        education_diplomacy_4 = { #I convincingly just want to serve Rome; easier to get politicians than actual good officers
+            weight = { base = 10 }
+        }
+    }
+    #Personality
+    random_traits_list = {
+        count = 3
+        ambitious = {} #Army is a political stepping stone
+        arrogant = {} #I'm a patrician or matrician!
+        brave = {} #Sometimes politicians are brave.
+        callous = {} #But sometimes they are cruel.
+        craven = {} #Sometimes politicians are crave.
+        wrathful = {} #And those ones can still be tools.
+        patient = {} #The best commanders are patient.
+        impatient = {} #But they can also be impatient.
+        generous = {} #A good politician knows a generous general gets lots of loyalty.
+        stubborn = {} #Had to be stubborn to get a post you're not fit for.
+    }
+    #Commander
+    random_traits_list = {
+        count = 1
+        organizer = {
+            weight = { base = 25 }
+        }
+        logistician = {
+            weight = { base = 25 }
+        }
+        military_engineer = {
+            weight = { base = 25 }
+        }
+        reckless = {
+            weight = { base = 10 }
+        }
+        unyielding_defender = {
+            weight = { base = 10 }
+        }
+        aggressive_attacker = {
+            weight = { base = 5 }
+        }
+    }
+
+    faith = root.faith
+    culture = root.culture
+    gender_female_chance = root_soldier_female_chance
+}
