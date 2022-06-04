@@ -12,6 +12,12 @@ convert_to_roman_culture_decision = {
 		is_landed = yes
 		capital_province = { geographical_region = world_europe_south_italy }
 		NOT = { culture = culture:roman}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:convert_to_roman_culture_decision
+			}
+		}
 	}
 
 
@@ -46,10 +52,12 @@ convert_to_roman_culture_decision = {
 	}
 
 	effect = {
-		convert_family_culture_and_notify_vassals_effect = {
-			CONVERTER = root
-			OLD_CULTURE = root.culture
-			NEW_CULTURE = culture:roman
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:convert_to_roman_culture_decision
+		}
+		show_as_tooltip = {
+			convert_to_roman_culture_effect = yes
 		}
 	}
 }
@@ -69,6 +77,12 @@ convert_to_hellenism_decision = {
 		capital_province = { geographical_region = world_europe_south_italy }
 		NOT = { religion = religion:hellenism_religion }
 		has_character_modifier = touched_by_olympus
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:convert_to_hellenism_decision
+			}
+		}
 	}
 
 	is_valid = {
@@ -94,6 +108,10 @@ convert_to_hellenism_decision = {
 	}
 
 	effect = {
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:convert_to_hellenism_decision
+		}
 		set_character_faith = faith:hellenic_pagan
 		trigger_event = {
 			id = faith_conversion.0002

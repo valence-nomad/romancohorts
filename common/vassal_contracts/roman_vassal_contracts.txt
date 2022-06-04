@@ -110,12 +110,12 @@ imperial_province_type = {
     obligation_levels = {
         imperial_province_military = { #Legion command; the province helps with military maintenance, but you get less from it
             position = { 0 1 }
-            tax_factor = -0.5
+            tax_factor = -0.6
             levies_factor = -0.8
 
             liege_modifier = {
-                men_at_arms_maintenance = -0.08
-                army_maintenance_mult = -0.04
+                men_at_arms_maintenance = -0.05
+                army_maintenance_mult = -0.05
 		        heavy_infantry_max_size_add = 2
                 skirmishers_max_size_add = 2
 		        heavy_cavalry_max_size_add = 2
@@ -136,15 +136,15 @@ imperial_province_type = {
         imperial_province_senator = { #Province is a senatorial province; great for civil, but no contribution to military
             position = { 1 2 }
             tax_factor = 0.3
-            levies_factor = -0.8
+            levies_factor = -1.0
 
             liege_modifier = {
-                tax_mult = 0.05
+                tax_mult = 0.03
             }
-            vassal_modifier = {
-                tax_mult = 0.05
+            vassal_modifier = { #It is prestigious to be a senator...
+                tax_mult = 0.1
                 development_growth_factor = medium_development_growth_gain
-                fellow_vassal_opinion = 10
+                fellow_vassal_opinion = 15
                 owned_personal_scheme_success_chance_add = 10
                 owned_hostile_scheme_success_chance_add = 10
             }

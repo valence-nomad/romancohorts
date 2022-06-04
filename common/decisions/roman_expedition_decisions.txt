@@ -11,6 +11,7 @@ create_roman_expedition_decision = {
 
 	is_shown = {
 		is_ruler = yes
+		is_ruler = no
 		is_landed = yes
 		OR = { #Only Romans can launch a reclamation expedition
 			has_title = title:e_byzantium

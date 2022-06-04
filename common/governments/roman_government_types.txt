@@ -40,3 +40,15 @@ imperial_roman_government = {
 
     color = hsv{ 0.31, 0.93, 0.56 }
 }
+
+legion_government = {
+    court_generate_commanders = 5
+    council = no
+
+    ai = {
+        use_scripted_guis = no
+        perform_religious_reformation = no
+    }
+    
+	color = hsv{ 0.00 0.00 0.66 }
+}

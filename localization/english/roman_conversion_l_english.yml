@@ -12,6 +12,11 @@ convert_to_roman_culture_decision:0 "Adopt Roman Traditions"
 convert_to_roman_culture_decision_desc:0 "I have studied the works, culture, and history of the ancient Romans. Their way of life and culture is most fascinating. Perhaps we should consider adopting some of the old Roman ways into our own society, and thereby gain some strength from the masters of the world."
 convert_to_roman_culture_decision_tooltip:0 "I will become Roman"
 convert_to_roman_culture_decision_confirm:0 "Ab antiquo, ad praesens!"
+convert_to_roman_culture_decision_get_innovations:0 "#D Roman Culture gets a lot of innovations#!"
+convert_to_roman_culture_decision_vassals_custom:0 "All vassals in Italy"
+decision_convert_to_roman_culture_get_innovations:1 "The Roman [culture|E] gains all [innovations|E] from your old culture"
+convert_to_roman_culture_vassals_custom:1 "Every [vassal|E] of Rome"
+convert_to_roman_culture_counties_custom:1 "Every [county|e] in Italy"
 
 roman_conversion.0002.t:0 "A Vision of Glory"
 roman_conversion.0002.desc:0 "As I take stock of the battle raging below me, I notice a potential breach in my lines and turn to order a messenger to deploy part of my reserves. Suddenly, I feel a cool breeze running against my neck, somehow invigorating and sharpening my focus to a diamond point. I hear a voice from somewhere, telling me to charge the breach."
@@ -52,4 +57,3 @@ roman_conversion.0006.desc:0 "My bodyguards and I crash into the breach! But [en
 roman_conversion.0006.a:0 "The figure lied to me..."
 roman_conversion.0006.b:0 "The gods betrayed me..."
 roman_conversion.0006.a.tt:0 "You have been killed in action."
-

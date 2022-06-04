@@ -121,11 +121,11 @@ imperial_legitimacy_pulse = { #maintenance behind the scenes to check characters
         }
         else_if = {
             limit = { var:imperial_legitimacy < 0 }
-            set_variable = { name = imperial_legitimacy value = 0 } #if you somehow managed to get below 0 imperial legitimacy, we bring you back to 0
+            set_variable = { name = imperial_legitimacy value = 0 } #clamp at lowest level of legitimacy
         }
         else_if = {
             limit = { var:imperial_legitimacy > 100 }
-            set_variable = { name = imperial_legitimacy value = 100} #if you somehow managed to get above 100 imperial legitimacy, we bring you back to 100
+            set_variable = { name = imperial_legitimacy value = 100} #clamp at highest level of legitimacy
         }
     }
 }
@@ -320,6 +320,18 @@ on_explicit_claim_gain = {
                 }
             }
             imperial_legitimacy_massive_gain
+        }
+    }
+}
+
+on_succession = {
+    effect = {
+        if = {
+            limit = { #the new imperator has not yet solidified their legitimacy
+                has_government = imperial_roman_government
+                highest_held_title_tier >= 5 #only for an emperor's heir
+            }
+        set_variable = { name = imperial_legitimacy value = 50}
         }
     }
 }
